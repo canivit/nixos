@@ -1,0 +1,26 @@
+{ pkgs, ... }:
+let
+  aliases = {
+    ls = "exa";
+    cat = "bat";
+  };
+in {
+  programs.fish.enable = true;
+  users.users.can.shell = pkgs.fish;
+
+  home-manager.users.can.programs.fish = {
+    enable = true;
+    shellAliases = aliases;
+    interactiveShellInit = ''
+      set fish_greeting
+      fish_vi_key_bindings
+    '';
+  };
+
+  home-manager.users.can.programs.bash = {
+    enable = true;
+    shellAliases = aliases;
+    initExtra = ''
+    '';
+  };
+}
