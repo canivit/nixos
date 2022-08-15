@@ -12,7 +12,7 @@
     kdenlive
     torrential
     lxappearance
-    mate.eom
+    sxiv
 
     # communication
     teams
