@@ -15,13 +15,14 @@ in
     #package = pkgs.vscode-fhsWithPackages (ps: with ps; [ dotnet-sdk ]);
     package = pkgs.vscodium;
 
-    extensions = with pkgs; [
-      vscode-extensions.vscodevim.vim
-      vscode-extensions.mskelton.one-dark-theme
-      vscode-extensions.esbenp.prettier-vscode
-      vscode-extensions.ms-python.python
-      vscode-extensions.bbenoist.nix
-      vscode-extensions.arrterian.nix-env-selector
+    extensions = with pkgs.vscode-extensions; [
+      vscodevim.vim
+      mskelton.one-dark-theme
+      esbenp.prettier-vscode
+      ms-python.python
+      bbenoist.nix
+      arrterian.nix-env-selector
+      github.copilot
       #vscode-extensions.ms-dotnettools.csharp
     ] ++ marketExtensions;
 
