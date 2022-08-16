@@ -21,7 +21,7 @@ in
       };
     };
     displayManager = {
-      defaultSession = "gnome";
+      defaultSession = "gnome-xorg";
       gdm.enable = true;
     };
     desktopManager.gnome = {

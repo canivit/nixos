@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./gtk.nix
     ./programs
     ./searx
     ./virtualisation.nix
