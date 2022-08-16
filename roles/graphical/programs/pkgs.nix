@@ -11,8 +11,6 @@
     pavucontrol
     kdenlive
     torrential
-    lxappearance
-    sxiv
 
     # communication
     teams
