@@ -46,6 +46,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # For Keychron K8
+  boot.extraModprobeConfig = ''
+    options hid_apple fnmode=2
+  '';
+  boot.kernelModules = [ "hid-apple" ];
+
   services.fstrim.enable = true;
   services.fstrim.interval = "weekly";
   services.fwupd.enable = true;
