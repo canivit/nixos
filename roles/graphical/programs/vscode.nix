@@ -49,8 +49,8 @@ in
     ];
 
     userSettings = {
-      "window.titleBarStyle" = "native";
-      #"window.titleBarStyle" = "custom";
+      #"window.titleBarStyle" = "native";
+      "window.titleBarStyle" = "custom";
       "workbench.colorTheme" = "One Dark";
       "workbench.iconTheme" = "vscode-icons";
       "editor.minimap.enabled" = true;
