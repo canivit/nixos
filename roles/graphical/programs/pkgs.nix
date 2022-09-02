@@ -11,6 +11,7 @@
     pavucontrol
     kdenlive
     torrential
+    libreoffice
 
     # communication
     teams
