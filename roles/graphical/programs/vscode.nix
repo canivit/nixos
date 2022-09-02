@@ -7,6 +7,13 @@ let
       version = "11.12.0";
       sha256 = "sha256-jyc6m6lfwSYt5xg2H5TGdxheKptho87C7eN4xuU5IYg=";
     }
+
+    {
+      name = "cake-vscode";
+      publisher = "cake-build";
+      version = "2.0.0";
+      sha256 = "sha256-aBgTPB4bSKMjq4WmbZH+a96ljWUh6MpsNpKYtCNTzNM=";
+    }
   ];
 in
   {
@@ -23,7 +30,7 @@ in
       bbenoist.nix
       arrterian.nix-env-selector
       github.copilot
-      #vscode-extensions.ms-dotnettools.csharp
+      ms-dotnettools.csharp
     ] ++ marketExtensions;
 
     keybindings = [
