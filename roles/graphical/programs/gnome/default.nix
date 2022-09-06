@@ -17,7 +17,7 @@ in
         tapping = true;
         naturalScrolling = true;
         scrollMethod = "twofinger";
-        disableWhileTyping = false;
+        disableWhileTyping = true;
       };
     };
     displayManager = {
@@ -29,13 +29,18 @@ in
     };
   };
 
+  programs.gnome-disks.enable = true;
+  services.gnome.gnome-settings-daemon.enable = true;
+  services.gnome.core-utilities.enable = true;
+  services.gnome.core-shell.enable = true;
+  services.gnome.core-os-services.enable = true;
+  programs.file-roller.enable = true;
+  qt5.platformTheme = "gnome";
+
   environment.systemPackages = with pkgs; [ 
-    arc-theme
-    papirus-icon-theme
     dconf2nix
     gnomeExtensions.appindicator 
     gnome.gnome-tweaks
-    gnomeExtensions.paperwm
   ];
 
    home-manager.users.can = { pkgs, ... }: {
