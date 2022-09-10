@@ -170,7 +170,8 @@ in {
 
         "${modifier}+Delete" = "exec --no-startup-id ${lock}";
 
-        "${modifier}+Return" = "exec --no-startup-id ${pkgs.alacritty}/bin/alacritty";
+        "${modifier}+Return" = "exec --no-startup-id alacritty";
+        "${modifier}+Shift+Return" = "exec --no-startup-id alacritty -e ssh khoury";
         "${modifier}+backslash" = "exec --no-startup-id ${pkgs.chromium}/bin/chromium";
         "${modifier}+BackSpace" = "exec --no-startup-id ${pkgs.pcmanfm}/bin/pcmanfm";
         "${modifier}+d" = "exec --no-startup-id rofi -show drun -dpi 192";

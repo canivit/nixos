@@ -1,6 +1,7 @@
 { ... }:
 {
   home-manager.users.can.home.sessionVariables.TERMINAL = "alacritty";
+  home-manager.users.can.home.sessionVariables.TERM = "xterm-256color";
 
   home-manager.users.can.programs.alacritty = {
     enable = true;
