@@ -21,7 +21,6 @@ let
       version = "1.0.3452021";
       sha256 = "sha256-3AU0q6eKPC6/YURtlBCXa3BUU3HqpKI1n7VOOjHF/o4=";
     }
-
   ];
 in
   {
@@ -39,6 +38,7 @@ in
       arrterian.nix-env-selector
       github.copilot
       pkgs.unstable.vscode-extensions.ms-dotnettools.csharp
+      pkgs.unstable.vscode-extensions.ms-vscode.cpptools
     ] ++ marketExtensions;
 
     keybindings = [
