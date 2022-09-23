@@ -17,5 +17,6 @@
     usbutils
     pciutils
     nixfmt
+    openconnect
   ];
 }
