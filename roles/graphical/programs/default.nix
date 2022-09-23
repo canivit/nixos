@@ -9,6 +9,7 @@
     ./vscode.nix
     ./zathura.nix
     ./pcmanfm.nix
+    ./wireshark.nix
     ./pkgs.nix
   ];
 }
