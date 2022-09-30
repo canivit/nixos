@@ -23,17 +23,13 @@
     # development
     racket
     jetbrains.rider
+    dotnet-sdk_5
     jetbrains.idea-ultimate
     jetbrains.datagrip
     jetbrains.pycharm-professional
     jetbrains.clion   
     azuredatastudio
     github-desktop    
-
-    (with dotnetCorePackages; combinePackages [
-      sdk_6_0
-      sdk_5_0
-    ])
     
     vmware-horizon-client
   ];
