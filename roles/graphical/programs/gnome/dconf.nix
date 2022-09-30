@@ -8,8 +8,8 @@
       font-hinting = "slight";
       font-name = "Open Sans Regular 12";
       gtk-im-module = "gtk-im-context-simple";
-      gtk-theme = "Yaru-blue-dark";
-      icon-theme = "Yaru-blue-dark";
+      gtk-theme = "Arc-Dark";
+      icon-theme = "ePapirus-Dark";
       monospace-font-name = "Fira Code 10";
       show-battery-percentage = true;
       toolkit-accessibility = false;
@@ -111,7 +111,7 @@
     };
 
     "org/gnome/shell/extensions/user-theme" = {
-      name = "Yaru-blue-dark";
+      name = "Arc-Dark";
     };
 
 

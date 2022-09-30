@@ -3,6 +3,9 @@
   environment.systemPackages = with pkgs; [
     dconf
     gnome.adwaita-icon-theme
+    arc-theme
+    arc-icon-theme
+    papirus-icon-theme
   ];
 
   programs.dconf.enable = true;
@@ -13,12 +16,12 @@
 
     theme = {
       package = pkgs.yaru-theme;
-      name = "Yaru-blue-dark";
+      name = "Arc-Dark";
     };
 
     iconTheme = {
       package = pkgs.yaru-theme;
-      name = "Yaru-blue-dark";
+      name = "ePapirus-Dark";
     };
 
     font = {
