@@ -22,7 +22,7 @@
     # development
     racket
     jetbrains.rider
-    dotnet-sdk_6
+    dotnet-sdk_5
     jetbrains.idea-ultimate
     jetbrains.datagrip
     jetbrains.pycharm-professional
