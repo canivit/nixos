@@ -23,6 +23,13 @@
         config.allowUnfree = true;
       };
     };
+
+    myoverlay = import ./overlay {
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    };
   in {
     nixosConfigurations.uranus = nixpkgs.lib.nixosSystem {
       inherit system;
@@ -30,7 +37,7 @@
       modules = [
         {
           nixpkgs.config.allowUnfree = true;
-          nixpkgs.overlays = [ overlay-unstable ];
+          nixpkgs.overlays = [ overlay-unstable myoverlay ];
         }
 
         home-manager.nixosModules.home-manager {
