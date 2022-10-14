@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     firefox
+    librewolf
     polkit_gnome    
     gparted
     vlc
@@ -29,5 +30,8 @@
     jetbrains.clion   
     azuredatastudio
     github-desktop    
+    mine.rars
+
+    vmware-horizon-client
   ];
 }
