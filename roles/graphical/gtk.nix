@@ -36,4 +36,8 @@
       size= 24;
     };
   };
+
+  environment.sessionVariables = {
+    GTK_THEME = "Arc-Dark";
+  };
 }
