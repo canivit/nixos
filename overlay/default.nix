@@ -8,5 +8,6 @@ in
 
   mine = {
     dotnet-sdk_5 = callPackage ./dotnet-sdk_5.nix {};
+    rars = callPackage ./rars.nix {};
   };
 }
