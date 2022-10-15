@@ -18,6 +18,11 @@
     docker = {
       enable = true;
     };
+
+    virtualbox.host = {
+      enable = true;
+      enableExtensionPack = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [
