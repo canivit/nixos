@@ -9,6 +9,7 @@
 , curl
 , icu
 , gtk3
+, libnotify
 , lttng-ust_2_12
 }:
 stdenv.mkDerivation rec {
@@ -24,6 +25,7 @@ stdenv.mkDerivation rec {
     libuuid
     openssl
     gtk3
+    libnotify
   ] ++ lib.optionals stdenv.isLinux [
     lttng-ust_2_12
   ]);
