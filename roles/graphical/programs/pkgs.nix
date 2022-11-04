@@ -13,6 +13,7 @@
     kdenlive
     torrential
     libreoffice
+    solaar
 
     # communication
     teams
