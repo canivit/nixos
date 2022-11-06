@@ -6,7 +6,7 @@
     ./../../roles/laptop
   ];
 
-  networking.hostName = "uranus";
-  system.stateVersion = "21.05";
+  networking.hostName = "darterpro";
+  system.stateVersion = "22.05";
   boot.kernelPackages = pkgs.linuxPackages_latest;
 }

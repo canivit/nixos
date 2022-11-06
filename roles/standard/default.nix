@@ -55,6 +55,4 @@
   services.fstrim.enable = true;
   services.fstrim.interval = "weekly";
   services.fwupd.enable = true;
-
-  system.stateVersion = "21.05";
 }

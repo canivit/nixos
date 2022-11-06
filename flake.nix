@@ -47,5 +47,22 @@
         ./hosts/uranus
       ];
     };
+
+    nixosConfigurations.darterpro = nixpkgs.lib.nixosSystem {
+      inherit system;
+
+      modules = [
+        {
+          nixpkgs.config.allowUnfree = true;
+          nixpkgs.overlays = [ overlay-unstable myoverlay ];
+        }
+
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+        }
+
+        ./hosts/darterpro
+      ];
+    };
   };
 }

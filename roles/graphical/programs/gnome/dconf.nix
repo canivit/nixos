@@ -81,8 +81,8 @@
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>backslash";
-      command = "chromium";
-      name = "chromium";
+      command = "firefox";
+      name = "firefox";
     };
 
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
@@ -98,14 +98,14 @@
     };
 
     "org/gnome/settings-daemon/plugins/power" = {
-      power-button-action = "nothing";
+      power-button-action = "hibernate";
     };
 
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disabled-extensions = [ "launch-new-instance@gnome-shell-extensions.gcampax.github.com" ];
       enabled-extensions = [ "apps-menu@gnome-shell-extensions.gcampax.github.com" "drive-menu@gnome-shell-extensions.gcampax.github.com" "places-menu@gnome-shell-extensions.gcampax.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com" "workspace-indicator@gnome-shell-extensions.gcampax.github.com" "windowsNavigator@gnome-shell-extensions.gcampax.github.com" "appindicatorsupport@rgcjonas.gmail.com" ];
-      favorite-apps = [ "chromium-browser.desktop" "org.gnome.Nautilus.desktop" "Alacritty.desktop" "codium.desktop" "azuredatastudio.desktop" "rider.desktop" ];
+      favorite-apps = [ "firefox.desktop" "org.gnome.Nautilus.desktop" "Alacritty.desktop" "codium.desktop" "azuredatastudio.desktop" "rider.desktop" ];
       had-bluetooth-devices-setup = true;
       welcome-dialog-last-shown-version = "41.1";
     };
