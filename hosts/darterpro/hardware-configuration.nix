@@ -10,6 +10,7 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [ "mem_sleep_default=deep" ];
+  boot.resumeDevice = "/dev/disk/by-label/swap";
 
 
   fileSystems."/" =
