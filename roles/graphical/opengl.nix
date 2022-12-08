@@ -6,6 +6,7 @@
     driSupport32Bit = true;
     extraPackages = with pkgs; [
       intel-media-driver
+      intel-ocl
     ];
   };
 }

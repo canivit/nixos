@@ -18,5 +18,6 @@
     pciutils
     nixfmt
     gnumake
+    hashcat
   ];
 }
