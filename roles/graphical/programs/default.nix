@@ -7,6 +7,7 @@
     ./mpv.nix
     ./vscode.nix
     ./zathura.nix
+    ./wireshark.nix
     ./pkgs.nix
   ];
 }
