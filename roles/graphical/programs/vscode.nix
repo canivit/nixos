@@ -39,6 +39,8 @@ in
       arrterian.nix-env-selector
       github.copilot
       pkgs.unstable.vscode-extensions.ms-dotnettools.csharp
+      pkgs.unstable.vscode-extensions.ms-vscode.cpptools
+      matklad.rust-analyzer
     ] ++ marketExtensions;
 
     keybindings = [
