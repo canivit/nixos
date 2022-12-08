@@ -34,5 +34,6 @@
     mine.rars
 
     vmware-horizon-client
+    calibre
   ];
 }
