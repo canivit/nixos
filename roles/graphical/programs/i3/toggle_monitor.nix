@@ -1,14 +1,11 @@
 { pkgs, ... }:
 let
   toggle_monitor = pkgs.writeShellScriptBin "toggle_monitor" ''
-    if xrandr | grep "DP-3-3 connected"; then
-      xrandr --output DP-3-3 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output eDP-1 --off
+    if xrandr | grep "DP-1-3 connected"; then
+      xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-3 --mode 1920x1080 --pos 0x0 --rotate normal
     else
-      xrandr --output eDP-1 --mode 3840x2400 --pos 0x0 --rotate normal --output DP-3-3 --off
+      xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1-3 --off
     fi
-
-    ${pkgs.i3-gaps}/bin/i3-msg restart
-    updatelock
   '';
 in
   {

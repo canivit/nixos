@@ -1,7 +1,6 @@
 { pkgs, lib, ... }:
 let
   lock = "${pkgs.systemd}/bin/loginctl lock-session";
-  bg = import ./../../background.nix { inherit pkgs; };
 in {
   imports = [
     ./lock.nix
@@ -88,12 +87,6 @@ in {
          always = true; 
          notification = false; 
         }
-
-        { 
-          command = "${pkgs.feh}/bin/feh --bg-center ${bg.background}"; 
-          always = true; 
-          notification = false; 
-        }
         
         { 
           command = "${pkgs.systemd}/bin/systemctl --user restart polybar"; 
@@ -174,7 +167,7 @@ in {
         "${modifier}+Shift+Return" = "exec --no-startup-id alacritty -e ssh khoury";
         "${modifier}+backslash" = "exec --no-startup-id ${pkgs.chromium}/bin/chromium";
         "${modifier}+BackSpace" = "exec --no-startup-id ${pkgs.pcmanfm}/bin/pcmanfm";
-        "${modifier}+d" = "exec --no-startup-id rofi -show drun -dpi 192";
+        "${modifier}+d" = "exec --no-startup-id rofi -show drun";
 
         "${modifier}+n" = "exec ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         "${modifier}+m" = "exec ${pkgs.arandr}/bin/arandr";

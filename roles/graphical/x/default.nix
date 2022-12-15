@@ -6,13 +6,13 @@ in
     services.xserver = {
       enable = true;
       layout = "us";
-      dpi = 192;
+      dpi = 96;
 
       libinput = {
         enable = true;
         touchpad = {
           accelProfile = "adaptive";
-          accelSpeed = "0.5";
+          #accelSpeed = "0.5";
           tapping = true;
           naturalScrolling = true;
           scrollMethod = "twofinger";
@@ -38,31 +38,31 @@ in
           cursorTheme = {
             package = pkgs.gnome.adwaita-icon-theme;
             name = "Adwaita";
-            size = 48;
+            size = 24;
           };
         };
       };
     };
 
-    hardware.video.hidpi.enable = true;
+    hardware.video.hidpi.enable = false;
 
-    home-manager.users.can.home.file.".background-image".source = bg.background;
+    home-manager.users.can.home.file.".background-image".source = bg.background_fhd;
     home-manager.users.can.xresources.extraConfig = builtins.readFile ./Xresources;
 
     home-manager.users.can.home.pointerCursor = {
       package = pkgs.gnome.adwaita-icon-theme;
       name = "Adwaita";
-      size = 48;
+      size = 24;
       x11 = {
         enable = true;
         defaultCursor = "Adwaita";
       };
     };
 
-    environment.variables = {
-      "GDK_SCALE" = "2";
-      "XCURSOR_SIZE" = "48";
-      "GDK_DPI_SCALE" = "0.5";
-      "QT_SCALE_FACTOR" = "1.5";
-    };
+    #environment.variables = {
+    #  "GDK_SCALE" = "1";
+    #  "XCURSOR_SIZE" = "24";
+    #  "GDK_DPI_SCALE" = "1";
+    #  "QT_SCALE_FACTOR" = "1.5";
+    #};
   }

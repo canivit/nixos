@@ -6,7 +6,7 @@
       qemu = {
         ovmf = {
           enable = true;
-          package = pkgs.OVMFFull;
+          packages = [ pkgs.OVMFFull ];
         };
         swtpm = {
           enable = true;

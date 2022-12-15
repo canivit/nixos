@@ -15,6 +15,8 @@
     ./pkgs.nix
   ];
 
+  home-manager.users.can.home.stateVersion = "22.11";
+
   users.users.can = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
@@ -49,6 +51,4 @@
   services.fstrim.enable = true;
   services.fstrim.interval = "weekly";
   services.fwupd.enable = true;
-
-  system.stateVersion = "21.05";
 }

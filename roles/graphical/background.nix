@@ -3,11 +3,12 @@ let
   directory = pkgs.fetchFromGitHub {
     repo = "background";
     owner = "canivit";
-    rev = "1fca5cab3a655874b2278652140065ba1809fc5a";
-    sha256 = "0v5h260lxasrjg7hli89wldq8la7nfllvqd1skqxcmq5g0rlfk40";
+    rev = "dc2ce3ef4060e4df2bb5607c7af2c0e9b402ffc7";
+    sha256 = "sha256-OLIlB1QqiI04NpdFpaaJY8P94y9CbO571zJYSYWsYug=";
   };
 in
   {
     background = "${directory}/background.png";
+    background_fhd = "${directory}/background_fhd.png";
     login = "${directory}/login.png";
   }

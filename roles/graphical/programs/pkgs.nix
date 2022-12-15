@@ -25,10 +25,6 @@
     jetbrains.rider
     dotnet-sdk_5
     jetbrains.idea-ultimate
-    jetbrains.datagrip
-    jetbrains.pycharm-professional
-    jetbrains.clion   
-    azuredatastudio
     github-desktop    
     
     vmware-horizon-client

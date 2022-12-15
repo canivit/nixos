@@ -23,12 +23,12 @@
 
       "bar/main" = {
         width = "100%";
-        height = "55";
+        height = "30";
         bottom = "false";
         fixed-center = "true";
-        line-size = "6";
-        dpi = "192";
-        border-bottom-size = "2";
+        line-size = "3";
+        dpi = "96";
+        border-bottom-size = "1";
         border-color = "#000000";
         background = "\${color.bg}";
         foreground = "\${color.fg}";
@@ -39,7 +39,7 @@
         tray-detached = "false";
         tray-scale = "1";
         tray-padding = "15";
-        tray-maxsize = "35";
+        #tray-maxsize = "35";
 
         modules-left = "workspaces";
         modules-center = "";
