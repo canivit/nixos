@@ -165,7 +165,7 @@ in {
 
         "${modifier}+Return" = "exec --no-startup-id alacritty";
         "${modifier}+Shift+Return" = "exec --no-startup-id alacritty -e ssh khoury";
-        "${modifier}+backslash" = "exec --no-startup-id ${pkgs.chromium}/bin/chromium";
+        "${modifier}+backslash" = "exec --no-startup-id ${pkgs.firefox}/bin/firefox";
         "${modifier}+BackSpace" = "exec --no-startup-id ${pkgs.pcmanfm}/bin/pcmanfm";
         "${modifier}+d" = "exec --no-startup-id rofi -show drun";
 
