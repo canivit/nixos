@@ -32,14 +32,14 @@
   console = {
     keyMap = "us";
   };
-
-  time.timeZone = "America/New_York";
-  time.hardwareClockInLocalTime = true;  
   
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.powersave = false;
   networking.firewall.enable = true;
   networking.firewall.allowPing = false;
+
+  services.ntp.enable = true;
+  services.automatic-timezoned.enable = true;
 
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
