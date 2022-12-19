@@ -224,5 +224,8 @@ in {
   programs.light.enable = true;
   users.users.can.extraGroups = [ "video" ];
 
+  programs.nm-applet.enable = true;
+  programs.nm-applet.indicator = true;
+
   environment.pathsToLink = [ "/libexec" ];
 }
