@@ -13,6 +13,8 @@
     torrential
     lxappearance
     sxiv
+    vmware-horizon-client
+    calibre
 
     # communication
     teams
@@ -27,6 +29,5 @@
     jetbrains.idea-ultimate
     github-desktop    
     
-    vmware-horizon-client
   ];
 }
