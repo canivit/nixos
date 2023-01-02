@@ -11,5 +11,6 @@
     ./pcmanfm.nix
     ./wireshark.nix
     ./pkgs.nix
+    ./mime.nix
   ];
 }
