@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+  wmclass = pkgs.callPackage ./wmclass.nix {};
+in
 {
   home-manager.users.can.services.polybar = {
     enable = true;
@@ -41,7 +44,7 @@
         tray-padding = "15";
         #tray-maxsize = "35";
 
-        modules-left = "workspaces";
+        modules-left = "workspaces wmclass";
         modules-center = "";
         modules-right = "kernel cpu memory backlight volume wired-network wireless-network battery date time";
         module-margin-left = "0";
@@ -79,6 +82,12 @@
         label-urgent = "%index%";
         label-urgent-background = "\${color.red}";
         label-urgent-padding = "3";
+      };
+
+      "module/wmclass" = {
+        type = "custom/script";
+        interval = "1";
+        exec = "${wmclass}/bin/wmclass"; 
       };
 
       "module/battery" = {
@@ -191,4 +200,8 @@
       };
     };
   };
+
+  environment.systemPackages = [
+    wmclass
+  ];
 }

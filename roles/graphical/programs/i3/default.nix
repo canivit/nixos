@@ -4,7 +4,7 @@ let
 in {
   imports = [
     ./lock.nix
-    ./polybar.nix
+    ./polybar
     ./systray.nix
     ./picom.nix
     ./toggle_monitor.nix
