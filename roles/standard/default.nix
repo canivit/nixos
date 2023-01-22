@@ -39,7 +39,7 @@
   networking.firewall.allowPing = false;
 
   services.ntp.enable = true;
-  services.automatic-timezoned.enable = true;
+  time.timeZone = "America/New_York";
 
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
