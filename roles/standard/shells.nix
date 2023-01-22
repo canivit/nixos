@@ -1,7 +1,8 @@
 { pkgs, ... }:
 let
   aliases = {
-    ls = "exa";
+    ls = "exa --icons --group-directories-first -g -h";
+    l = "exa --icons --group-directories-first -g -h -la";
     cat = "bat";
   };
 in {
