@@ -3,6 +3,8 @@ let
   aliases = {
     ls = "exa --icons --group-directories-first -g -h";
     l = "exa --icons --group-directories-first -g -h -la";
+    tree = "exa --icons -T";
+    t = "exa --icons -T";
     cat = "bat";
   };
 in {
