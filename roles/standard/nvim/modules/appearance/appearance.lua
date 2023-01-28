@@ -32,3 +32,9 @@ require('onedark').setup  {
 }
 
 require('onedark').load()
+
+require('lualine').setup {
+  options = {
+    theme = 'onedark'
+  }
+}

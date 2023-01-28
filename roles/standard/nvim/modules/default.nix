@@ -3,7 +3,7 @@ let
   modules = [
     ./main
     ./telescope
-    ./color
+    ./appearance
     ./treesitter
     ./harpoon
     ./lsp
