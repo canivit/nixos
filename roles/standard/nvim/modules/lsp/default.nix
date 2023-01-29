@@ -5,6 +5,7 @@
     cargo
     rustc
     rust-analyzer
+    rustfmt
   ];
   rc = wrapLua ./lsp.lua;
 }
