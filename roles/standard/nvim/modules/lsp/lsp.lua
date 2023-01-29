@@ -63,6 +63,11 @@ nvim_lsp.rust_analyzer.setup({
   }
 })
 
+-- Nix
+nvim_lsp.rnix.setup({
+  capabilities = capabilities
+})
+
 
 ---
 -- Snippet engine setup

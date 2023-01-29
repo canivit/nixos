@@ -9,10 +9,14 @@
   ];
 
   packages = with pkgs; [
+    # Rust
     cargo
     rustc
     rust-analyzer
     rustfmt
+
+    # Nix
+    rnix-lsp
   ];
 
   rc = wrapLua ./lsp.lua;
