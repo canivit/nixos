@@ -6,6 +6,7 @@
     cmp_luasnip
     nvim-cmp
     cmp-nvim-lsp
+    nvim-code-action-menu
   ];
 
   packages = with pkgs; [
@@ -17,6 +18,11 @@
 
     # Nix
     rnix-lsp
+
+    # Ruby
+    ruby_3_1
+    rubyPackages_3_1.solargraph
+    rubyPackages_3_1.rubocop
   ];
 
   rc = wrapLua ./lsp.lua;

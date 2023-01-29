@@ -65,6 +65,13 @@ nvim_lsp.rust_analyzer.setup({
 
 -- Nix
 nvim_lsp.rnix.setup({
+  on_attach=on_attach,
+  capabilities = capabilities
+})
+
+-- Ruby
+nvim_lsp.solargraph.setup({
+  on_attach=on_attach,
   capabilities = capabilities
 })
 
