@@ -23,6 +23,9 @@
     ruby_3_1
     rubyPackages_3_1.solargraph
     rubyPackages_3_1.rubocop
+
+    # Lua
+    sumneko-lua-language-server
   ];
 
   rc = wrapLua ./lsp.lua;
