@@ -18,5 +18,6 @@
     pciutils
     nixfmt
     openconnect
+    mine.skindle
   ];
 }
