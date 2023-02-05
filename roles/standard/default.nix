@@ -1,7 +1,7 @@
 { ... }:
 {
   imports = [
-    ./nvim.nix
+    ./nvim
     ./shells.nix
     ./starship.nix
     ./direnv.nix
