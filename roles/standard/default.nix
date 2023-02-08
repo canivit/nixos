@@ -12,6 +12,7 @@
     ./iplocation.nix
     ./nix.nix
     ./bat.nix
+    ./skindle
     ./pkgs.nix
   ];
 
