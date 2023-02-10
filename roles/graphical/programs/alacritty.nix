@@ -6,6 +6,10 @@
   home-manager.users.can.programs.alacritty = {
     enable = true;
     settings = {
+      env = {
+        TERM = "xterm-256color";
+      };
+
       window = {
         padding = {
           x = 4;
@@ -14,6 +18,7 @@
         decorations = "Full";
         startup_mode = "Maximized";
       };
+
       font = {
         normal = {
           family = "FiraCode Nerd Font";
