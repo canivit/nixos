@@ -22,8 +22,15 @@ in {
         tmux-sessionizer
       end
 
+      function open-home
+        tmux-sessionizer $HOME
+      end
+
       bind -M insert \cF open-finder
       bind -M default \cF open-finder
+
+      bind -M insert \cH open-home
+      bind -M default \cH open-home
     '';
   };
 
