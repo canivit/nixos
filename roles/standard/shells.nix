@@ -17,6 +17,13 @@ in {
     interactiveShellInit = ''
       set fish_greeting
       fish_vi_key_bindings
+
+      function open-finder
+        tmux-sessionizer
+      end
+
+      bind -M insert \cF open-finder
+      bind -M default \cF open-finder
     '';
   };
 

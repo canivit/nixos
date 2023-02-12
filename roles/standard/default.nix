@@ -2,6 +2,8 @@
 {
   imports = [
     ./nvim
+    ./tmux
+    ./fzf.nix
     ./shells.nix
     ./starship.nix
     ./direnv.nix
