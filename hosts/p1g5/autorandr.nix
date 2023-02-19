@@ -34,7 +34,7 @@
 
         config = {
           eDP-1 = {
-            enable = true;
+            enable = false;
             primary = false;
             position = "0x0";
             mode = "1920x1080";
