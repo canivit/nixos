@@ -1,4 +1,3 @@
-Xft.dpi: 96
 URxvt.font: xft:FiraMono-Regular:size=10
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault

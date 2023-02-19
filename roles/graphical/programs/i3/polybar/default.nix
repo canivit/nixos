@@ -1,6 +1,19 @@
-{ pkgs, ... }:
+{ hidpi ? false, pkgs, ... }:
 let
-  wmclass = pkgs.callPackage ./wmclass.nix {};
+  wmclass = pkgs.callPackage ./wmclass.nix { };
+  dpiDependentValues =
+    if hidpi then {
+      height = "55";
+      line-size = "6";
+      dpi = "192";
+      border-bottom-size = "2";
+      tray-maxsize = "35";
+    } else {
+      height = "30";
+      line-size = "3";
+      dpi = "96";
+      border-bottom-size = "1";
+    };
 in
 {
   home-manager.users.can.services.polybar = {
@@ -26,12 +39,8 @@ in
 
       "bar/main" = {
         width = "100%";
-        height = "30";
         bottom = "false";
         fixed-center = "true";
-        line-size = "3";
-        dpi = "96";
-        border-bottom-size = "1";
         border-color = "#000000";
         background = "\${color.bg}";
         foreground = "\${color.fg}";
@@ -42,7 +51,6 @@ in
         tray-detached = "false";
         tray-scale = "1";
         tray-padding = "15";
-        #tray-maxsize = "35";
 
         modules-left = "workspaces wmclass";
         modules-center = "";
@@ -55,7 +63,7 @@ in
         font-2 = "\"Font Awesome 6 Free,Font Awesome 6 Free Regular:style=Regular:size=10.5;4\"";
         font-3 = "\"Font Awesome 6 Brands,Font Awesome 6 Brands Regular:style=Regular:size=10.5;4\"";
         font-4 = "\"Material Icons:style=Regular:size=10.5;4\"";
-      };
+      } // dpiDependentValues;
 
       "module/workspaces" = {
         type = "internal/i3";
@@ -87,7 +95,7 @@ in
       "module/wmclass" = {
         type = "custom/script";
         interval = "1";
-        exec = "${wmclass}/bin/wmclass"; 
+        exec = "${wmclass}/bin/wmclass";
       };
 
       "module/battery" = {

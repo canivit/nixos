@@ -1,9 +1,17 @@
-{ pkgs, ... }: {
+args@{ pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    ./autorandr.nix
+    (
+      import ./autorandr.nix (
+        args // { hidpi = true; }
+      )
+    )
     ./../../roles/standard
-    ./../../roles/graphical
+    (
+      import ./../../roles/graphical (
+        args // { hidpi = true; }
+      )
+    )
     ./../../roles/laptop
   ];
 

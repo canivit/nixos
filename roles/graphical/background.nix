@@ -8,7 +8,7 @@ let
   };
 in
   {
-    background = "${directory}/background.png";
+    background_uhd = "${directory}/background.png";
     background_fhd = "${directory}/background_fhd.png";
     login = "${directory}/login.png";
   }

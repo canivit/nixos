@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ hidpi ? false, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     dconf
@@ -30,7 +30,7 @@
     cursorTheme = {
       package = pkgs.gnome.adwaita-icon-theme;
       name = "Adwaita";
-      #size= 48;
+      size = if hidpi then 48 else 24;
     };
   };
 }

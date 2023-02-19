@@ -1,4 +1,8 @@
-{ ... }:
+{ hidpi ? false, ... }:
+let
+  builtinRes = if hidpi then "3840x2400" else "1920x1200";
+  externalRes = if hidpi then "3840x2160" else "1920x1080";
+in
 {
   services.autorandr = {
     enable = true;
@@ -14,7 +18,7 @@
             enable = true;
             primary = true;
             position = "0x0";
-            mode = "1920x1200";
+            mode = builtinRes;
             rotate = "normal";
             rate = "60.00";
           };
@@ -37,7 +41,7 @@
             enable = false;
             primary = false;
             position = "0x0";
-            mode = "1920x1080";
+            mode = externalRes;
             rotate = "normal";
             rate = "60.00";
           };
@@ -46,7 +50,7 @@
             enable = true;
             primary = true;
             position = "0x0";
-            mode = "1920x1080";
+            mode = externalRes;
             rotate = "normal";
             rate = "60.00";
           };
