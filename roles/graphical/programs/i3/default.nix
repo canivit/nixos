@@ -95,6 +95,12 @@ in {
         }
 
         { 
+          command = "${pkgs.autorandr}/bin/autorandr -c"; 
+          always = true; 
+          notification = false; 
+        }
+
+        { 
           command = "/run/current-system/sw/libexec/polkit-gnome-authentication-agent-1";
           always = false; 
           notification = false; 
