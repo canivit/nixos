@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 let
   lock = "${pkgs.systemd}/bin/loginctl lock-session";
+  bg = import ./../../background.nix { inherit pkgs; };
 in {
   imports = [
     ./lock.nix
@@ -96,6 +97,12 @@ in {
 
         { 
           command = "${pkgs.autorandr}/bin/autorandr -c"; 
+          always = true; 
+          notification = false; 
+        }
+
+        { 
+          command = "${pkgs.feh}/bin/feh --bg-fill ${bg.background_fhd}"; 
           always = true; 
           notification = false; 
         }

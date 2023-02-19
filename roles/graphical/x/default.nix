@@ -20,7 +20,7 @@ in
         };
       };
 
-      desktopManager.wallpaper.mode = "center";
+      # desktopManager.wallpaper.mode = "center";
 
       displayManager.lightdm = {
         enable = true;
