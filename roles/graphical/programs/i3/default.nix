@@ -1,14 +1,27 @@
-{ pkgs, lib, ... }:
+args@{ hidpi ? false, pkgs, lib, ... }:
 let
   lock = "${pkgs.systemd}/bin/loginctl lock-session";
-in {
+  bg = import ./../../background.nix { inherit pkgs; };
+  wallpaper = if hidpi then bg.background_uhd else bg.background_fhd;
+  launchRofi =
+    if hidpi
+    then "exec --no-startup-id rofi -show drun -dpi 192"
+    else "exec --no-startup-id rofi -show drun";
+in
+{
   imports = [
-    ./lock.nix
-    ./polybar
+    (
+      import ./lock.nix (
+        args // { inherit hidpi; }
+      )
+    )
+    (
+      import ./polybar (
+        args // { inherit hidpi; }
+      )
+    )
     ./systray.nix
     ./picom.nix
-    ./toggle_monitor.nix
-    #./autorandr.nix
   ];
 
   services.xserver.windowManager.i3 = {
@@ -30,7 +43,7 @@ in {
         size = 10.0;
       };
 
-      bars = [];
+      bars = [ ];
 
       focus.followMouse = false;
 
@@ -82,22 +95,34 @@ in {
       };
 
       startup = [
-        { 
-         command = "i3-msg workspace 1"; 
-         always = true; 
-         notification = false; 
-        }
-        
-        { 
-          command = "${pkgs.systemd}/bin/systemctl --user restart polybar"; 
-          always = true; 
-          notification = false; 
+        {
+          command = "i3-msg workspace 1";
+          always = true;
+          notification = false;
         }
 
-        { 
+        {
+          command = "${pkgs.systemd}/bin/systemctl --user restart polybar";
+          always = true;
+          notification = false;
+        }
+
+        {
+          command = "${pkgs.autorandr}/bin/autorandr -c";
+          always = true;
+          notification = false;
+        }
+
+        {
+          command = "${pkgs.feh}/bin/feh --bg-fill ${wallpaper}";
+          always = true;
+          notification = false;
+        }
+
+        {
           command = "/run/current-system/sw/libexec/polkit-gnome-authentication-agent-1";
-          always = false; 
-          notification = false; 
+          always = false;
+          notification = false;
         }
       ];
 
@@ -124,7 +149,7 @@ in {
         "${modifier}+Shift+9" = "move container to workspace 9";
         "${modifier}+Shift+0" = "move container to workspace 10";
 
-       
+
         "${modifier}+h" = "focus left";
         "${modifier}+j" = "focus down";
         "${modifier}+k" = "focus up";
@@ -153,7 +178,6 @@ in {
 
         "${modifier}+Shift+c" = "reload";
         "${modifier}+Shift+r" = "restart";
-        "${modifier}+Shift+m" = "exec --no-startup-id toggle_monitor";
 
         "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%";
         "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
@@ -167,7 +191,7 @@ in {
         "${modifier}+Shift+Return" = "exec --no-startup-id alacritty -e ssh khoury";
         "${modifier}+backslash" = "exec --no-startup-id ${pkgs.firefox}/bin/firefox";
         "${modifier}+BackSpace" = "exec --no-startup-id ${pkgs.pcmanfm}/bin/pcmanfm";
-        "${modifier}+d" = "exec --no-startup-id rofi -show drun";
+        "${modifier}+d" = launchRofi;
 
         "${modifier}+n" = "exec ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         "${modifier}+m" = "exec ${pkgs.arandr}/bin/arandr";

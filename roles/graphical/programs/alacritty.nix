@@ -1,4 +1,4 @@
-{ ... }:
+{ hidpi ? false, ... }:
 {
   home-manager.users.can.home.sessionVariables.TERMINAL = "alacritty";
   home-manager.users.can.home.sessionVariables.TERM = "xterm-256color";
@@ -8,6 +8,7 @@
     settings = {
       env = {
         TERM = "xterm-256color";
+        WINIT_X11_SCALE_FACTOR = if hidpi then "2" else "1";
       };
 
       window = {
