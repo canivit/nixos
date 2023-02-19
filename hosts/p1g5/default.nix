@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
+    ./autorandr.nix
     ./../../roles/standard
     ./../../roles/graphical
     ./../../roles/laptop
