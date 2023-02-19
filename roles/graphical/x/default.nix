@@ -44,7 +44,7 @@ in
       };
     };
 
-    hardware.video.hidpi.enable = false;
+    # hardware.video.hidpi.enable = false;
 
     home-manager.users.can.home.file.".background-image".source = bg.background_fhd;
     home-manager.users.can.xresources.extraConfig = builtins.readFile ./Xresources;
