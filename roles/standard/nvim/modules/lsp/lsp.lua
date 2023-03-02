@@ -4,7 +4,7 @@
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -18,7 +18,7 @@ local on_attach = function(client, bufnr)
 
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -37,47 +37,37 @@ local on_attach = function(client, bufnr)
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local nvim_lsp = require'lspconfig'
+local nvim_lsp = require 'lspconfig'
 
 -- Rust
-nvim_lsp.rust_analyzer.setup({
-  on_attach=on_attach,
-  capabilities = capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      imports = {
-        granularity = {
-          group = "module",
-        },
-        prefix = "self",
-      },
-      cargo = {
-        buildScripts = {
-          enable = true,
-        },
-      },
-      procMacro = {
-        enable = true
-      },
-    }
-  }
+local rt = require("rust-tools")
+
+rt.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      -- Hover actions
+      vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+      -- Code action groups
+      vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+    end,
+  },
 })
 
 -- Nix
 nvim_lsp.rnix.setup({
-  on_attach=on_attach,
+  on_attach = on_attach,
   capabilities = capabilities
 })
 
 -- Ruby
 nvim_lsp.solargraph.setup({
-  on_attach=on_attach,
+  on_attach = on_attach,
   capabilities = capabilities
 })
 
 -- Lua
 nvim_lsp.sumneko_lua.setup({
-  on_attach=on_attach,
+  on_attach = on_attach,
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -87,7 +77,7 @@ nvim_lsp.sumneko_lua.setup({
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim' },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
@@ -122,9 +112,9 @@ require('luasnip.loaders.from_vscode').lazy_load()
 
 local cmp = require('cmp')
 
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
-local cmp_select_opts = {behavior = cmp.SelectBehavior.Select}
+local cmp_select_opts = { behavior = cmp.SelectBehavior.Select }
 
 local cmp_config = {
   completion = {
@@ -136,10 +126,10 @@ local cmp_config = {
     end,
   },
   sources = {
-    {name = 'path'},
-    {name = 'nvim_lsp', keyword_length = 3},
-    {name = 'buffer', keyword_length = 3},
-    {name = 'luasnip', keyword_length = 2},
+    { name = 'path' },
+    { name = 'nvim_lsp', keyword_length = 3 },
+    { name = 'buffer', keyword_length = 3 },
+    { name = 'luasnip', keyword_length = 2 },
   },
   window = {
     documentation = vim.tbl_deep_extend(
@@ -152,7 +142,7 @@ local cmp_config = {
     )
   },
   formatting = {
-    fields = {'abbr', 'menu', 'kind'},
+    fields = { 'abbr', 'menu', 'kind' },
     format = function(entry, item)
       local short_name = {
         nvim_lsp = 'LSP',
@@ -167,8 +157,8 @@ local cmp_config = {
   },
   mapping = {
     -- confirm selection
-    ['<CR>'] = cmp.mapping.confirm({select = false}),
-    ['<C-y>'] = cmp.mapping.confirm({select = false}),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+    ['<C-y>'] = cmp.mapping.confirm({ select = false }),
 
     -- navigate items on the list
     ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
@@ -197,7 +187,7 @@ local cmp_config = {
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
 
     -- go to previous placeholder in the snippet
     ['<C-b>'] = cmp.mapping(function(fallback)
@@ -206,7 +196,7 @@ local cmp_config = {
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
 
     -- when menu is visible, navigate to next item
     -- when line is empty, insert a tab character
@@ -221,7 +211,7 @@ local cmp_config = {
       else
         cmp.complete()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
 
     -- when menu is visible, navigate to previous item on list
     -- else, revert to default behavior
@@ -231,7 +221,7 @@ local cmp_config = {
       else
         fallback()
       end
-    end, {'i', 's'}),
+    end, { 'i', 's' }),
   }
 }
 

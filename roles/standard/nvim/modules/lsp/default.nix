@@ -7,6 +7,7 @@
     nvim-cmp
     cmp-nvim-lsp
     nvim-code-action-menu
+    pkgs.unstable.vimPlugins.rust-tools-nvim
   ];
 
   packages = with pkgs; [
