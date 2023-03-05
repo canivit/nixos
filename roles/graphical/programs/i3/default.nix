@@ -191,6 +191,7 @@ in
         "${modifier}+Shift+Return" = "exec --no-startup-id alacritty -e ssh khoury";
         "${modifier}+backslash" = "exec --no-startup-id ${pkgs.firefox}/bin/firefox";
         "${modifier}+BackSpace" = "exec --no-startup-id ${pkgs.pcmanfm}/bin/pcmanfm";
+        "${modifier}+apostrophe" = "exec --no-startup-id alacritty -e docread";
         "${modifier}+d" = launchRofi;
 
         "${modifier}+n" = "exec ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";

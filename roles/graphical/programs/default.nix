@@ -20,5 +20,6 @@ args@{ hidpi ? false, ... }:
     ./wireshark.nix
     ./pkgs.nix
     ./mime.nix
+    ./docread
   ];
 }
