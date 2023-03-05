@@ -62,7 +62,7 @@ in
         smartBorders = "on";
       };
 
-      workspaceAutoBackAndForth = true;
+      workspaceAutoBackAndForth = false;
 
       floating.criteria = [
         { class = "Pavucontrol"; }
@@ -109,7 +109,7 @@ in
 
         {
           command = "${pkgs.autorandr}/bin/autorandr -c";
-          always = true;
+          always = false;
           notification = false;
         }
 
@@ -195,6 +195,7 @@ in
 
         "${modifier}+n" = "exec ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         "${modifier}+m" = "exec ${pkgs.arandr}/bin/arandr";
+        "${modifier}+Shift+m" = "exec ${pkgs.autorandr}/bin/autorandr -c";
         "${modifier}+p" = "exec --no-startup-id ${pkgs.pavucontrol}/bin/pavucontrol";
         "${modifier}+b" = "exec --no-startup-id ${pkgs.blueman}/bin/blueman-manager";
       };
