@@ -8,7 +8,6 @@ in
     enable = true;
     defaultTarget = "laptop";
     hooks.postswitch = {
-      restarti3 = "i3-msg restart";
       updatelock = "updatelock";
     };
     profiles = {
