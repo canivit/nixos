@@ -82,6 +82,12 @@ nvim_lsp.solargraph.setup({
   capabilities = capabilities
 })
 
+-- OCaml
+nvim_lsp.ocamllsp.setup({
+  on_attach = on_attach,
+  capabilities = capabilities
+})
+
 -- Lua
 nvim_lsp.sumneko_lua.setup({
   on_attach = on_attach,
