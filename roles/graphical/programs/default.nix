@@ -12,9 +12,10 @@ args@{ hidpi ? false, ... }:
         args // { inherit hidpi; }
       )
     )
+
+    ./vscode
     ./chromium.nix
     ./mpv.nix
-    ./vscode.nix
     ./zathura.nix
     ./pcmanfm.nix
     ./wireshark.nix

@@ -1,4 +1,4 @@
-{ nixpkgs, pkgs, config, ...}:
+{ nixpkgs, pkgs, config, ... }:
 let
   marketExtensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
     {
@@ -36,14 +36,15 @@ let
       sha256 = "sha256-H3f1+c31x+lgCzhgTb0uLg9Bdn3pZyJGPPwfpCYrS70=";
     }
   ];
-in
-  {
-    home-manager.users.can.programs.vscode = {
-      enable = true;
-    #package = pkgs.vscode-fhsWithPackages (ps: with ps; [ dotnet-sdk ]);
-    #package = pkgs.unstable.vscode;
 
-    extensions = with pkgs.vscode-extensions; [
+  settings = builtins.fromJSON (builtins.readFile ./settings.json);
+in
+{
+  home-manager.users.can.programs.vscode = {
+    enable = true;
+    package = pkgs.unstable.vscode;
+
+    extensions = with pkgs.unstable.vscode-extensions; [
       vscodevim.vim
       mskelton.one-dark-theme
       esbenp.prettier-vscode
@@ -78,52 +79,6 @@ in
       }
     ];
 
-    userSettings = {
-      "window.titleBarStyle" = "native";
-      #"window.titleBarStyle" = "custom";
-      "workbench.colorTheme" = "One Dark";
-      "workbench.iconTheme" = "vscode-icons";
-      "editor.minimap.enabled" = true;
-      "editor.fontFamily" = "JetBrains Mono";
-      "editor.fontLigatures" = true;
-      "editor.fontSize" = 15;
-      "editor.tabSize" = 2;
-      "editor.mouseWheelZoom" = true;
-      "terminal.integrated.fontFamily" = "Fira Code";
-      "terminal.integrated.fontSize" = 15;
-      "terminal.external.linuxExec" = "alacritty";
-      "terminal.integrated.scrollback" = 1000;
-      "terminal.integrated.defaultProfile.linux" = "fish";
-      "debug.console.fontSize" = 15;
-
-      "vim.useSystemClipboard" = true;
-
-      "workbench.startupEditor" = "none";
-
-      "[html]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-
-      "[css]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-
-      "[javascript]" = {
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-      };
-
-      #"[csharp]" = {
-      #  "editor.defaultFormatter" = "ms-dotnettools.csharp";
-      #};
-
-      "ruby.useBundler" = true;
-      "ruby.useLanguageServer" = false;
-      "ruby.lint" = {
-        "rubocop" = {
-          "useBundler" = true;
-        };
-      };
-      "ruby.format" = "rubocop";
-    };
+    userSettings = settings;
   };
 }

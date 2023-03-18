@@ -1,0 +1,75 @@
+{
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "debug.console.fontSize": 15,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 15,
+  "editor.minimap.enabled": true,
+  "editor.mouseWheelZoom": true,
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "One Dark italic",
+        "scope": [
+          "comment",
+          "entity.other.attribute-name",
+          "keyword",
+          "markup.underline.link",
+          "storage.modifier",
+          "storage.type",
+          "string.url",
+          "variable.language.super",
+          "variable.language.this"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "name": "One Dark italic reset",
+        "scope": [
+          "keyword.operator",
+          "keyword.other.type",
+          "storage.modifier.import",
+          "storage.modifier.package",
+          "storage.type.built-in",
+          "storage.type.function.arrow",
+          "storage.type.generic",
+          "storage.type.java",
+          "storage.type.primitive"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+  "ruby.format": "rubocop",
+  "ruby.lint": {
+    "rubocop": {
+      "useBundler": true
+    }
+  },
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": false,
+  "terminal.external.linuxExec": "alacritty",
+  "terminal.integrated.defaultProfile.linux": "fish",
+  "terminal.integrated.fontFamily": "Fira Code",
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.scrollback": 1000,
+  "vim.useSystemClipboard": true,
+  "window.titleBarStyle": "native",
+  "workbench.colorTheme": "One Dark",
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.startupEditor": "none",
+  "editor.inlineSuggest.enabled": true
+}
