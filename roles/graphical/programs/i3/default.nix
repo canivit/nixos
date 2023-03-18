@@ -109,7 +109,7 @@ in
 
         {
           command = "${pkgs.autorandr}/bin/autorandr -c";
-          always = false;
+          always = true;
           notification = false;
         }
 
