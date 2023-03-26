@@ -9,7 +9,7 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-  boot.kernelParams = [ "mem_sleep_default=deep" "i915.force_probe=46a6" ];
+  boot.kernelParams = [ "i915.force_probe=46a6" ];
   boot.resumeDevice = "/dev/disk/by-label/swap";
 
 
