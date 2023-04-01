@@ -1,6 +1,6 @@
 { pkgs, vimPlugins, wrapLua, ... }:
 {
-  plugins = with vimPlugins; [ 
+  plugins = with vimPlugins; [
     nvim-lspconfig
     luasnip
     cmp_luasnip

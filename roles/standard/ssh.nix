@@ -20,7 +20,7 @@ in
         identitiesOnly = true;
       };
     };
-    
+
     matchBlocks = {
       "khoury" = {
         hostname = "login.ccs.neu.edu";

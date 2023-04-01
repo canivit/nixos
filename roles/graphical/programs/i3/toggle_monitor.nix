@@ -8,7 +8,7 @@ let
     fi
   '';
 in
-  {
-    environment.systemPackages = with pkgs; [ toggle_monitor ];
-  }
+{
+  environment.systemPackages = with pkgs; [ toggle_monitor ];
+}
 

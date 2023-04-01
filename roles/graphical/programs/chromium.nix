@@ -12,7 +12,7 @@
       #"hipekcciheckooncpjeljhnekcoolahp" # Tabliss
       "fmkadmapgofadopljbjfkapdkoienihi" # React Dev Tools
     ];
-    
+
     extraOpts = {
       "PasswordManagerEnabled" = false;
       "DefaultBrowserSettingEnabled" = true;
@@ -21,10 +21,10 @@
   };
 
   nixpkgs.config.chromium.commandLineArgs = lib.concatStringsSep " " [
-    "--ignore-gpu-blocklist"              # force gpu acceleration
+    "--ignore-gpu-blocklist" # force gpu acceleration
     "--enable-gpu-rasterization"
     "--enable-zero-copy"
-    
+
     "--enable-features=VaapiVideoDecoder" # enable hardware accelerated video decoding
   ];
 }

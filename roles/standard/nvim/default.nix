@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 let
-  modules = pkgs.callPackage ./modules {};
-  moduleDefaults = { plugins = []; packages = []; rc = ""; };
+  modules = pkgs.callPackage ./modules { };
+  moduleDefaults = { plugins = [ ]; packages = [ ]; rc = ""; };
   lstToString = lib.lists.foldr (a: b: a + "\n" + b) "";
   getModulePlugins = module: (moduleDefaults // module).plugins;
   getModulePackages = module: (moduleDefaults // module).packages;

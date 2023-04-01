@@ -15,9 +15,9 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = ["Times New Roman"];
-        sansSerif = ["Open Sans"];
-        monospace = ["FiraCode Nerd Font Mono"];
+        serif = [ "Times New Roman" ];
+        sansSerif = [ "Open Sans" ];
+        monospace = [ "FiraCode Nerd Font Mono" ];
       };
     };
   };

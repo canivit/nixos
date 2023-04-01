@@ -7,8 +7,8 @@ let
     sha256 = "sha256-OLIlB1QqiI04NpdFpaaJY8P94y9CbO571zJYSYWsYug=";
   };
 in
-  {
-    background_uhd = "${directory}/background.png";
-    background_fhd = "${directory}/background_fhd.png";
-    login = "${directory}/login.png";
-  }
+{
+  background_uhd = "${directory}/background.png";
+  background_fhd = "${directory}/background_fhd.png";
+  login = "${directory}/login.png";
+}

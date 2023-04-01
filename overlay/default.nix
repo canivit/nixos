@@ -2,13 +2,13 @@
 final: prev:
 let
   inherit (prev) callPackage;
-in 
+in
 {
   inherit (pkgs);
 
   mine = {
-    dotnet-sdk_5 = callPackage ./dotnet-sdk_5.nix {};
-    rars = callPackage ./rars.nix {};
+    dotnet-sdk_5 = callPackage ./dotnet-sdk_5.nix { };
+    rars = callPackage ./rars.nix { };
     skindle = skindle.defaultPackage.${pkgs.system};
   };
 }

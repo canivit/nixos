@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 {
   home-manager.users.can.programs.git = {
     enable = true;
@@ -18,8 +18,7 @@
     settings = {
       git_protocol = "ssh";
       prompt = "enabled";
-      aliases = {
-      };
+      aliases = { };
     };
   };
 }

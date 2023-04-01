@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     firefox
-    polkit_gnome    
+    polkit_gnome
     gparted
     vlc
     mpv
@@ -27,7 +27,7 @@
     jetbrains.rider
     dotnet-sdk_5
     jetbrains.idea-ultimate
-    github-desktop    
-    
+    github-desktop
+
   ];
 }

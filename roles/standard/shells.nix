@@ -7,7 +7,8 @@ let
     t = "exa --icons -T";
     cat = "bat";
   };
-in {
+in
+{
   programs.fish.enable = true;
   users.users.can.shell = pkgs.fish;
 

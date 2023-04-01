@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, ... }:
 let
   modules = [
     ./main
@@ -11,7 +11,10 @@ let
 
   wrapLua = p: "lua <<EOF\n${builtins.readFile p}\nEOF";
 
-in map (m: pkgs.callPackage m {
-  inherit wrapLua;
-}) modules
+in
+map
+  (m: pkgs.callPackage m {
+    inherit wrapLua;
+  })
+  modules
 

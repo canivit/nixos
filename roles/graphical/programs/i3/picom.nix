@@ -10,7 +10,7 @@
     ];
     fade = true;
     fadeDelta = 2;
-    settings = { 
+    settings = {
       "xinerama-shadow-crop" = true;
       "shadow-exclude-reg" = "x30+0+0";
     };
