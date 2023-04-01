@@ -71,6 +71,19 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs { inherit system; };
+
+        nixboot = pkgs.writeShellScriptBin "nixboot" ''
+          sudo nixos-rebuild boot --flake .
+        '';
+        nixswitch = pkgs.writeShellScriptBin "nixswitch" ''
+          sudo nixos-rebuild switch --flake .
+        '';
+        nixupdate = pkgs.writeShellScriptBin "nixupdate" ''
+          nix flake update
+        '';
+        nixupgrade = pkgs.writeShellScriptBin "nixupgrade" ''
+          nix flake update && sudo nixos-rebuild switch --flake .
+        '';
       in
       {
         formatter = pkgs.nixpkgs-fmt;
@@ -78,6 +91,11 @@
           name = "nixos-config";
           buildInputs = with pkgs; [
             nixpkgs-fmt
+          ] ++ [
+            nixboot
+            nixswitch
+            nixupdate
+            nixupgrade
           ];
         };
       });
