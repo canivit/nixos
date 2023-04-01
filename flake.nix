@@ -17,76 +17,52 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, skindle, ... }:
     let
-      system = "x86_64-linux";
-
-      overlay-unstable = final: prev: {
-        unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
+      mkUnstableOverlay = system:
+        final: prev: {
+          unstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
         };
-      };
 
-      myoverlay = import ./overlay {
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
+      mkMyOverlay = system:
+        import ./overlay {
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          inherit skindle;
         };
-        inherit skindle;
-      };
+
+      mkSystemConfig = host: system:
+        let
+          unstableOverlay = mkUnstableOverlay system;
+          myOverlay = mkMyOverlay system;
+        in
+        {
+          ${host} = nixpkgs.lib.nixosSystem {
+            inherit system;
+
+            modules = [
+              {
+                nixpkgs.config.allowUnfree = true;
+                nixpkgs.overlays = [ unstableOverlay myOverlay ];
+              }
+
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+              }
+
+              ./hosts/${host}
+            ];
+          };
+        };
     in
     {
-      nixosConfigurations.uranus = nixpkgs.lib.nixosSystem {
-        inherit system;
-
-        modules = [
-          {
-            nixpkgs.config.allowUnfree = true;
-            nixpkgs.overlays = [ overlay-unstable myoverlay ];
-          }
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-          }
-
-          ./hosts/uranus
-        ];
-      };
-
-      nixosConfigurations.darterpro = nixpkgs.lib.nixosSystem {
-        inherit system;
-
-        modules = [
-          {
-            nixpkgs.config.allowUnfree = true;
-            nixpkgs.overlays = [ overlay-unstable myoverlay ];
-          }
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-          }
-
-          ./hosts/darterpro
-        ];
-      };
-
-      nixosConfigurations.p1g5 = nixpkgs.lib.nixosSystem {
-        inherit system;
-
-        modules = [
-          {
-            nixpkgs.config.allowUnfree = true;
-            nixpkgs.overlays = [ overlay-unstable myoverlay ];
-          }
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-          }
-
-          ./hosts/p1g5
-        ];
-      };
+      nixosConfigurations = { }
+        // mkSystemConfig "uranus" "x86_64-linux"
+        // mkSystemConfig "darterpro" "x86_64-linux"
+        // mkSystemConfig "p1g5" "x86_64-linux";
     };
 }
