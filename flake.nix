@@ -12,10 +12,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flake-utils.url = "github:numtide/flake-utils";
+
     skindle.url = "github:canivit/skindle";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, skindle, ... }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, skindle, ... }:
     let
       mkUnstableOverlay = system:
         final: prev: {
@@ -61,8 +63,22 @@
     in
     {
       nixosConfigurations = { }
-        // mkSystemConfig "uranus" "x86_64-linux"
-        // mkSystemConfig "darterpro" "x86_64-linux"
-        // mkSystemConfig "p1g5" "x86_64-linux";
-    };
+      // mkSystemConfig "uranus" "x86_64-linux"
+      // mkSystemConfig "darterpro" "x86_64-linux"
+      // mkSystemConfig "p1g5" "x86_64-linux";
+
+    } //
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs { inherit system; };
+      in
+      {
+        formatter = pkgs.nixpkgs-fmt;
+        devShell = pkgs.mkShell {
+          name = "nixos-config";
+          buildInputs = with pkgs; [
+            nixpkgs-fmt
+          ];
+        };
+      });
 }

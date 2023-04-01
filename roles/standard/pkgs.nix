@@ -16,7 +16,7 @@
     bootiso
     usbutils
     pciutils
-    nixfmt
+    nixpkgs-fmt
     openconnect
   ];
 }
