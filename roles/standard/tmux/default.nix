@@ -18,7 +18,7 @@ in
     shortcut = "a";
     keyMode = "vi";
     customPaneNavigationAndResize = true;
-    #baseIndex = 1;
+    baseIndex = 1;
     resizeAmount = 2;
     escapeTime = 10;
     extraConfig = ''
@@ -40,6 +40,10 @@ in
 
       set -g base-index 1
       setw -g pane-base-index 1
+
+      set-window-option -g mode-keys vi
+      bind-key -T copy-mode-vi y send -X copy-selection-and-cancel
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
     '';
   };
 
