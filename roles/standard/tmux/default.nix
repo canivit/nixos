@@ -42,9 +42,16 @@ in
       setw -g pane-base-index 1
 
       set-window-option -g mode-keys vi
-      bind-key -T copy-mode-vi y send -X copy-selection-and-cancel
       bind-key -T copy-mode-vi v send-keys -X begin-selection
+      bind-key -T copy-mode-vi y send -X copy-selection-and-cancel
     '';
+
+    plugins = with pkgs.tmuxPlugins; [
+      {
+        plugin = onedark-theme;
+        extraConfig = "";
+      }
+    ];
   };
 
   environment.systemPackages = [ tmux-sessionizer ];
