@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    firefox
+    firefox-devedition-bin
     polkit_gnome
     gparted
     vlc
