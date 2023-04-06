@@ -10,6 +10,17 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
+-- customize which clients will be used for formatting
+local lsp_formatting = function()
+  vim.lsp.buf.format({
+    filter = function(client)
+      -- do not use tsserver for formatting (we are using prettier)
+      return client.name ~= "tsserver" and client.name ~= "jsonls"
+    end,
+    async = true,
+  })
+end
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -33,7 +44,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.keymap.set('n', '<space>f', lsp_formatting, bufopts)
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -115,6 +126,25 @@ nvim_lsp.sumneko_lua.setup({
   },
 })
 
+-- JSON
+nvim_lsp.jsonls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "vscode-json-languageserver", "--stdio" },
+}
+
+-- TypeScript
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+local null_ls = require("null-ls")
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.prettier,
+  },
+})
 
 ---
 -- Snippet engine setup

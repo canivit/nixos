@@ -2,6 +2,7 @@
 {
   plugins = with vimPlugins; [
     nvim-lspconfig
+    null-ls-nvim
     luasnip
     cmp_luasnip
     nvim-cmp
@@ -27,6 +28,13 @@
 
     # Lua
     sumneko-lua-language-server
+
+    # JSON
+    nodePackages.vscode-json-languageserver
+
+    # TypeScript
+    pkgs.unstable.nodePackages.typescript-language-server
+    nodePackages.prettier
   ];
 
   rc = wrapLua ./lsp.lua;
