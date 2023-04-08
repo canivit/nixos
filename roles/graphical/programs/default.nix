@@ -22,5 +22,6 @@ args@{ hidpi ? false, ... }:
     ./pkgs.nix
     ./mime.nix
     ./docread
+    ./rendermd
   ];
 }
