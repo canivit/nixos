@@ -35,6 +35,9 @@
     # TypeScript
     pkgs.unstable.nodePackages.typescript-language-server
     nodePackages.prettier
+
+    # Markdown
+    marksman
   ];
 
   rc = wrapLua ./lsp.lua;

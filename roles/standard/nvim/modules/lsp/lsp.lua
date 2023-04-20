@@ -139,6 +139,12 @@ nvim_lsp.tsserver.setup {
   capabilities = capabilities,
 }
 
+-- Markdown
+nvim_lsp.marksman.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 local null_ls = require("null-ls")
 null_ls.setup({
   sources = {
