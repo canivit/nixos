@@ -9,9 +9,11 @@ in
   networking.firewall.allowedTCPPorts = [ 22 ];
   services.openssh = {
     enable = true;
-    forwardX11 = true;
-    permitRootLogin = "no";
-    passwordAuthentication = false;
+    settings = {
+      X11Forwarding = true;
+      PermitRootLogin = "no";
+      PasswordAuthentication = false;
+    };
   };
   users.users.can.openssh.authorizedKeys.keyFiles = [ keys ];
 }

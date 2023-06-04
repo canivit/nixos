@@ -2,13 +2,13 @@
   description = "Can's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
 
     # use unstable channel for some packages
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/master";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-22.11";
+      url = "github:nix-community/home-manager/release-23.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -54,6 +54,7 @@
               home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
               }
 
               ./hosts/${host}

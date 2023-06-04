@@ -11,7 +11,7 @@ args@{ hidpi ? false, ... }:
         args // { inherit hidpi; }
       )
     )
-    ./searx
+    #./searx
     ./virtualisation.nix
     ./fonts.nix
     (

@@ -15,9 +15,9 @@
     sxiv
     vmware-horizon-client
     calibre
+    rclone
 
     # communication
-    teams
     zoom-us
     discord
     slack
@@ -25,9 +25,6 @@
     # development
     racket
     jetbrains.rider
-    dotnet-sdk_5
     jetbrains.idea-ultimate
-    github-desktop
-
   ];
 }
