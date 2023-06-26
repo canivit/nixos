@@ -27,7 +27,7 @@
     rubyPackages_3_1.rubocop
 
     # Lua
-    sumneko-lua-language-server
+    lua-language-server
 
     # JSON
     nodePackages.vscode-json-languageserver
