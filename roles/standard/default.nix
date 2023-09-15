@@ -41,6 +41,12 @@
   networking.firewall.enable = true;
   networking.firewall.allowPing = false;
 
+  nixpkgs.config.packageOverrides = pkgs: rec {
+    wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
+      patches = attrs.patches ++ [ ./eduroam.patch ];
+    });
+  };
+
   services.ntp.enable = true;
   time.timeZone = "America/New_York";
 
