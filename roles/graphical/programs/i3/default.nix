@@ -1,4 +1,4 @@
-args@{ hidpi ? false, pkgs, lib, ... }:
+args@{ hidpi ? false, pkgs, lib, config, ... }:
 let
   lock = "${pkgs.systemd}/bin/loginctl lock-session";
   bg = import ./../../background.nix { inherit pkgs; };
@@ -199,6 +199,10 @@ in
         "${modifier}+Shift+m" = "exec ${pkgs.autorandr}/bin/autorandr -c";
         "${modifier}+p" = "exec --no-startup-id ${pkgs.pavucontrol}/bin/pavucontrol";
         "${modifier}+b" = "exec --no-startup-id ${pkgs.blueman}/bin/blueman-manager";
+
+        # screenshots
+        "Print" = "exec --no-startup-id maim \"${config.users.users.can.home}/Pictures/SS_$(date +%FT%T)\"";
+        "${modifier}+Print" = "exec --no-startup-id maim --select \"${config.users.users.can.home}/Pictures/SS_$(date +%FT%T)\"";
       };
 
       colors = {
@@ -254,4 +258,9 @@ in
   programs.nm-applet.indicator = true;
 
   environment.pathsToLink = [ "/libexec" ];
+
+  environment.systemPackages = with pkgs; [
+    maim
+    xclip
+  ];
 }

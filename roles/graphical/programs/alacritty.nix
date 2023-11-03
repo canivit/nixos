@@ -18,7 +18,6 @@
         };
         decorations = "Full";
         startup_mode = "Maximized";
-        opacity = 0.80;
       };
 
       font = {
