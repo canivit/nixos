@@ -19,6 +19,7 @@
 
     # communication
     zoom-us
+    teams
     discord
     slack
 
