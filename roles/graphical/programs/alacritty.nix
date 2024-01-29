@@ -20,6 +20,10 @@
         startup_mode = "Maximized";
       };
 
+      scrolling = {
+        history = 100000;
+      };
+
       font = {
         normal = {
           family = "FiraCode Nerd Font";

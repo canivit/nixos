@@ -23,5 +23,6 @@ args@{ hidpi ? false, ... }:
     ./mime.nix
     ./docread
     ./rendermd
+    ./kdeconnect.nix
   ];
 }

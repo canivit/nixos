@@ -19,7 +19,7 @@
 
     # communication
     zoom-us
-    teams
+    teams-for-linux
     discord
     slack
 
@@ -27,5 +27,12 @@
     racket
     jetbrains.rider
     jetbrains.idea-ultimate
+    android-studio
+    mongodb-compass
   ];
+
+  programs.java = {
+    enable = true;
+    package = pkgs.jdk21;
+  };
 }

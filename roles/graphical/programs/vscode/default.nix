@@ -55,6 +55,7 @@ in
       #pkgs.unstable.vscode-extensions.ms-dotnettools.csharp
       #pkgs.unstable.vscode-extensions.ms-vscode.cpptools
       matklad.rust-analyzer
+      ocamllabs.ocaml-platform
     ] ++ marketExtensions;
 
     keybindings = [

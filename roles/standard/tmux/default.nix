@@ -21,6 +21,7 @@ in
     baseIndex = 1;
     resizeAmount = 2;
     escapeTime = 10;
+    historyLimit = 100000;
     extraConfig = ''
       set -g mouse on
 

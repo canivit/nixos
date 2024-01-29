@@ -1,10 +1,10 @@
 { pkgs, ... }:
 let
   aliases = {
-    ls = "exa --icons --group-directories-first -g -h";
-    l = "exa --icons --group-directories-first -g -h -la";
-    tree = "exa --icons -T";
-    t = "exa --icons -T";
+    ls = "eza --icons --group-directories-first -g -h";
+    l = "eza --icons --group-directories-first -g -h -la";
+    tree = "eza --icons -T";
+    t = "eza --icons -T";
     cat = "bat";
   };
 in
