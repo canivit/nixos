@@ -197,12 +197,13 @@ in
         "${modifier}+n" = "exec ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         "${modifier}+m" = "exec ${pkgs.arandr}/bin/arandr";
         "${modifier}+Shift+m" = "exec ${pkgs.autorandr}/bin/autorandr -c";
+        "${modifier}+Shift+p" = "exec ${pkgs.autorandr}/bin/autorandr clone-largest";
         "${modifier}+p" = "exec --no-startup-id ${pkgs.pavucontrol}/bin/pavucontrol";
         "${modifier}+b" = "exec --no-startup-id ${pkgs.blueman}/bin/blueman-manager";
 
         # screenshots
-        "Print" = "exec --no-startup-id maim \"${config.users.users.can.home}/Pictures/SS_$(date +%FT%T)\"";
-        "${modifier}+Print" = "exec --no-startup-id maim --select \"${config.users.users.can.home}/Pictures/SS_$(date +%FT%T)\"";
+        "Print" = "exec --no-startup-id maim \"${config.users.users.can.home}/Pictures/SS_$(date +%FT%T).png\"";
+        "${modifier}+Print" = "exec --no-startup-id maim --select \"${config.users.users.can.home}/Pictures/SS_$(date +%FT%T).png\"";
       };
 
       colors = {

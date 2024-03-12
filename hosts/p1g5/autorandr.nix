@@ -41,7 +41,7 @@ in
 
         config = {
           eDP-1 = {
-            enable = false;
+            enable = true;
             primary = false;
             position = "0x0";
             mode = externalRes;
