@@ -27,7 +27,7 @@
     racket
     jetbrains.rider
     jetbrains.idea-ultimate
-    android-studio
+    unstable.android-studio
     mongodb-compass
   ];
 
