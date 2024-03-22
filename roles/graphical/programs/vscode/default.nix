@@ -56,6 +56,8 @@ in
       #pkgs.unstable.vscode-extensions.ms-vscode.cpptools
       matklad.rust-analyzer
       ocamllabs.ocaml-platform
+      elixir-lsp.vscode-elixir-ls
+      mkhl.direnv
     ] ++ marketExtensions;
 
     keybindings = [

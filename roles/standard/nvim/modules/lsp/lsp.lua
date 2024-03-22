@@ -152,6 +152,13 @@ null_ls.setup({
   },
 })
 
+-- Elixir
+nvim_lsp.elixirls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "elixir-ls" },
+}
+
 ---
 -- Snippet engine setup
 ---
@@ -188,8 +195,8 @@ local cmp_config = {
   sources = {
     { name = 'path' },
     { name = 'nvim_lsp', keyword_length = 3 },
-    { name = 'buffer', keyword_length = 3 },
-    { name = 'luasnip', keyword_length = 2 },
+    { name = 'buffer',   keyword_length = 3 },
+    { name = 'luasnip',  keyword_length = 2 },
   },
   window = {
     documentation = vim.tbl_deep_extend(

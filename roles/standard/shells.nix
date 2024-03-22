@@ -10,6 +10,7 @@ let
 in
 {
   programs.fish.enable = true;
+  programs.zsh.enable = true;
   users.users.can.shell = pkgs.fish;
 
   home-manager.users.can.programs.fish = {
@@ -32,7 +33,9 @@ in
 
       bind -M insert \cH open-home
       bind -M default \cH open-home
+      
     '';
+    # source ${pkgs.asdf-vm}/share/asdf-vm/asdf.fish
   };
 
   home-manager.users.can.programs.bash = {

@@ -15,6 +15,7 @@
     ./nix.nix
     ./bat.nix
     ./skindle
+    # ./asdf.nix
     ./pkgs.nix
   ];
 
