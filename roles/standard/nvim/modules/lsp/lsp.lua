@@ -159,6 +159,12 @@ nvim_lsp.elixirls.setup {
   cmd = { "elixir-ls" },
 }
 
+-- C
+nvim_lsp.clangd.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 ---
 -- Snippet engine setup
 ---

@@ -7,6 +7,7 @@ let
     ./treesitter
     ./harpoon
     ./lsp
+    ./comment
   ];
 
   wrapLua = p: "lua <<EOF\n${builtins.readFile p}\nEOF";

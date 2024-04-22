@@ -38,6 +38,9 @@
 
     # Markdown
     marksman
+
+    # C
+    clang
   ];
 
   rc = wrapLua ./lsp.lua;
