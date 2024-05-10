@@ -10,15 +10,15 @@
       "application/pdf" = [ "zathura.desktop" ];
       "application/epub+zip" = [ "zathura.desktop" ];
       "text/plain" = [ "code.desktop" ];
-      "x-scheme-handler/http" = [ "firefox-devedition.desktop" ];
-      "x-scheme-handler/https" = [ "firefox-devedition.desktop" ];
-      "x-scheme-handler/chrome" = [ "firefox-devedition.desktop" ];
-      "application/x-extension-htm" = [ "firefox-devedition.desktop" ];
-      "application/x-extension-html" = [ "firefox-devedition.desktop" ];
-      "application/x-extension-shtml" = [ "firefox-devedition.desktop" ];
-      "application/xhtml+xml" = [ "firefox-devedition.desktop" ];
-      "application/x-extension-xhtml" = [ "firefox-devedition.desktop" ];
-      "application/x-extension-xht" = [ "firefox-devedition.desktop" ];
+      "x-scheme-handler/http" = [ "chromium.desktop" ];
+      "x-scheme-handler/https" = [ "chromium.desktop" ];
+      "x-scheme-handler/chrome" = [ "chromium.desktop" ];
+      "application/x-extension-htm" = [ "chromium.desktop" ];
+      "application/x-extension-html" = [ "chromium.desktop" ];
+      "application/x-extension-shtml" = [ "chromium.desktop" ];
+      "application/xhtml+xml" = [ "chromium.desktop" ];
+      "application/x-extension-xhtml" = [ "chromium.desktop" ];
+      "application/x-extension-xht" = [ "chromium.desktop" ];
     };
   };
 }
