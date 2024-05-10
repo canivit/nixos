@@ -22,6 +22,7 @@
     teams-for-linux
     discord
     slack
+    thunderbird
 
     # development
     racket
@@ -29,6 +30,8 @@
     jetbrains.idea-ultimate
     unstable.android-studio
     mongodb-compass
+
+    obs-studio
   ];
 
   programs.java = {
