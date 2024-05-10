@@ -24,5 +24,6 @@ args@{ hidpi ? false, ... }:
     ./docread
     ./rendermd
     ./kdeconnect.nix
+    ./redshift.nix
   ];
 }
