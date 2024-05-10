@@ -41,6 +41,7 @@
   networking.networkmanager.wifi.powersave = false;
   networking.firewall.enable = true;
   networking.firewall.allowPing = false;
+  networking.firewall.checkReversePath = false;
 
   nixpkgs.config.packageOverrides = pkgs: rec {
     wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
