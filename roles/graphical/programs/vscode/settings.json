@@ -38,10 +38,7 @@
           "string.url",
           "variable.language.super",
           "variable.language.this"
-        ],
-        "settings": {
-          "fontStyle": "italic"
-        }
+        ]
       },
       {
         "name": "One Dark italic reset",
