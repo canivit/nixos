@@ -82,7 +82,7 @@ rt.setup({
 })
 
 -- Nix
-nvim_lsp.rnix.setup({
+nvim_lsp.nixd.setup({
   on_attach = on_attach,
   capabilities = capabilities
 })
