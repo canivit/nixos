@@ -16,7 +16,7 @@
     extraOpts = {
       "PasswordManagerEnabled" = false;
       "DefaultBrowserSettingEnabled" = false;
-      "BrowserThemeColor" = "#282c34";
+      # "BrowserThemeColor" = "#282c34";
     };
   };
 

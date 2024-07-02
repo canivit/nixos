@@ -23,7 +23,7 @@
       enable = true;
     };
 
-    virtualbox.host.enable = true;
+    # virtualbox.host.enable = true;
   };
 
   environment.systemPackages = with pkgs; [

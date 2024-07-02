@@ -19,7 +19,7 @@
     rustfmt
 
     # Nix
-    rnix-lsp
+    #rnix-lsp
 
     # Ruby
     ruby_3_1

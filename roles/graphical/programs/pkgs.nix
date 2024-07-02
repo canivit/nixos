@@ -16,6 +16,8 @@
     vmware-horizon-client
     calibre
     rclone
+    obs-studio
+    zotero
 
     # communication
     zoom-us
@@ -29,9 +31,8 @@
     jetbrains.rider
     jetbrains.idea-ultimate
     unstable.android-studio
-    mongodb-compass
-
-    obs-studio
+    jetbrains.clion
+    gnumake
   ];
 
   programs.java = {
