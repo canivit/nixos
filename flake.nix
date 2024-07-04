@@ -15,9 +15,23 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     skindle.url = "github:canivit/skindle";
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, flake-utils, skindle, ... }:
+  outputs =
+    { self
+    , nixpkgs
+    , nixpkgs-unstable
+    , home-manager
+    , flake-utils
+    , skindle
+    , nixos-generators
+    , ...
+    }:
     let
       mkUnstableOverlay = system:
         final: prev: {
@@ -36,7 +50,7 @@
           inherit skindle;
         };
 
-      mkSystemConfig = host: system:
+      makeHardwareConfig = host: system:
         let
           unstableOverlay = mkUnstableOverlay system;
           myOverlay = mkMyOverlay system;
@@ -57,47 +71,82 @@
                 home-manager.useUserPackages = true;
               }
 
+              ./modules
               ./hosts/${host}
+            ];
+          };
+        };
+
+      makeKvmConfig = host: system:
+        let
+          unstableOverlay = mkUnstableOverlay system;
+          myOverlay = mkMyOverlay system;
+        in
+        {
+          ${host} = nixos-generators.nixosGenerate {
+            inherit system;
+            format = "qcow";
+
+            # specialArgs = {
+            #   diskSize = 50 * 1024;
+            # };
+
+            modules = [
+              {
+                nixpkgs.config.allowUnfree = true;
+                nixpkgs.overlays = [ unstableOverlay myOverlay ];
+              }
+
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+              }
+
+              ./modules
+              ./roles/standard
+              ./roles/graphical
             ];
           };
         };
     in
     {
       nixosConfigurations = { }
-      // mkSystemConfig "uranus" "x86_64-linux"
-      // mkSystemConfig "darterpro" "x86_64-linux"
-      // mkSystemConfig "p1g5" "x86_64-linux";
-
+      // makeHardwareConfig "uranus" "x86_64-linux"
+      // makeHardwareConfig "darterpro" "x86_64-linux"
+      // makeHardwareConfig "p1g5" "x86_64-linux";
+      vms = makeKvmConfig "kvm" "x86_64-linux";
     } //
     flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs { inherit system; };
+    let
+      pkgs = import nixpkgs { inherit system; };
 
-        nixboot = pkgs.writeShellScriptBin "nixboot" ''
-          sudo nixos-rebuild boot --flake .
-        '';
-        nixswitch = pkgs.writeShellScriptBin "nixswitch" ''
-          sudo nixos-rebuild switch --flake .
-        '';
-        nixupdate = pkgs.writeShellScriptBin "nixupdate" ''
-          nix flake update
-        '';
-        nixupgrade = pkgs.writeShellScriptBin "nixupgrade" ''
-          nix flake update && sudo nixos-rebuild switch --flake .
-        '';
-      in
-      {
-        formatter = pkgs.nixpkgs-fmt;
-        devShell = pkgs.mkShell {
-          name = "nixos-config";
-          buildInputs = with pkgs; [
-            nixpkgs-fmt
-          ] ++ [
-            nixboot
-            nixswitch
-            nixupdate
-            nixupgrade
-          ];
-        };
-      });
+      nixboot = pkgs.writeShellScriptBin "nixboot" ''
+        sudo nixos-rebuild boot --flake .
+      '';
+      nixswitch = pkgs.writeShellScriptBin "nixswitch" ''
+        sudo nixos-rebuild switch --flake .
+      '';
+      nixupdate = pkgs.writeShellScriptBin "nixupdate" ''
+        nix flake update
+      '';
+      nixupgrade = pkgs.writeShellScriptBin "nixupgrade" ''
+        nix flake update && sudo nixos-rebuild switch --flake .
+      '';
+    in
+    {
+      formatter = pkgs.nixpkgs-fmt;
+      devShell = pkgs.mkShell {
+        name = "nixos-config";
+        buildInputs = with pkgs; [
+          nixpkgs-fmt
+        ] ++ [
+          nixboot
+          nixswitch
+          nixupdate
+          nixupgrade
+        ];
+      };
+
+    });
 }

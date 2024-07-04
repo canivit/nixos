@@ -1,7 +1,14 @@
-{ hidpi ? false, ... }:
+{ config, ... }:
 let
-  builtinRes = if hidpi then "3840x2400" else "1920x1200";
-  externalRes = if hidpi then "3840x2160" else "1920x1080";
+  cfg =
+    if config.hidpi.enable then {
+      builtinRes = "3840x2400";
+      externalRes = "3840x2160";
+    } else {
+
+      builtinRes = "1920x1200";
+      externalRes = "1920x1080";
+    };
 in
 {
   services.autorandr = {
@@ -21,7 +28,7 @@ in
             enable = true;
             primary = true;
             position = "0x0";
-            mode = builtinRes;
+            mode = cfg.builtinRes;
             rotate = "normal";
             rate = "60.00";
           };
@@ -44,7 +51,7 @@ in
             enable = true;
             primary = false;
             position = "0x0";
-            mode = externalRes;
+            mode = cfg.externalRes;
             rotate = "normal";
             rate = "60.00";
           };
@@ -53,7 +60,7 @@ in
             enable = true;
             primary = true;
             position = "0x0";
-            mode = externalRes;
+            mode = cfg.externalRes;
             rotate = "normal";
             rate = "60.00";
           };

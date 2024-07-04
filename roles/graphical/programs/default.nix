@@ -1,18 +1,9 @@
-args@{ hidpi ? false, ... }:
+{ ... }:
 {
   imports = [
-    (
-      import ./i3 (
-        args // { inherit hidpi; }
-      )
-    )
+    ./i3
     ./rofi.nix
-    (
-      import ./alacritty.nix (
-        args // { inherit hidpi; }
-      )
-    )
-
+    ./alacritty.nix
     ./vscode
     ./chromium.nix
     ./mpv.nix

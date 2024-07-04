@@ -1,4 +1,7 @@
-{ hidpi ? false, ... }:
+{ config, ... }:
+let
+  scaleFactor = if config.hidpi.enable then "2" else "1";
+in
 {
   home-manager.users.can.home.sessionVariables.TERMINAL = "alacritty";
   home-manager.users.can.home.sessionVariables.TERM = "xterm-256color";
@@ -8,7 +11,7 @@
     settings = {
       env = {
         TERM = "xterm-256color";
-        WINIT_X11_SCALE_FACTOR = if hidpi then "2" else "1";
+        WINIT_X11_SCALE_FACTOR = scaleFactor;
       };
 
       window = {

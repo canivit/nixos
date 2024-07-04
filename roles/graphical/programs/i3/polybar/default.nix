@@ -1,8 +1,8 @@
-{ hidpi ? false, pkgs, ... }:
+{ pkgs, config, ... }:
 let
   wmclass = pkgs.callPackage ./wmclass.nix { };
-  dpiDependentValues =
-    if hidpi then {
+  dpiCfg =
+    if config.hidpi.enable then {
       height = "55";
       line-size = "6";
       dpi = "192";
@@ -63,7 +63,7 @@ in
         font-2 = "\"Font Awesome 6 Free,Font Awesome 6 Free Regular:style=Regular:size=10.5;4\"";
         font-3 = "\"Font Awesome 6 Brands,Font Awesome 6 Brands Regular:style=Regular:size=10.5;4\"";
         font-4 = "\"Material Icons:style=Regular:size=10.5;4\"";
-      } // dpiDependentValues;
+      } // dpiCfg;
 
       "module/workspaces" = {
         type = "internal/i3";

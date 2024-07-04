@@ -1,25 +1,20 @@
-args@{ hidpi ? false, pkgs, lib, config, ... }:
+{ pkgs, config, ... }:
 let
   lock = "${pkgs.systemd}/bin/loginctl lock-session";
   bg = import ./../../background.nix { inherit pkgs; };
-  wallpaper = if hidpi then bg.background_uhd else bg.background_fhd;
-  launchRofi =
-    if hidpi
-    then "exec --no-startup-id rofi -show drun -dpi 192"
-    else "exec --no-startup-id rofi -show drun";
+  cfg =
+    if config.hidpi.enable then {
+      wallpaper = bg.background_uhd;
+      launchRofi = "exec --no-startup-id rofi -show drun -dpi 192";
+    } else {
+      wallpaper = bg.background_fhd;
+      launchRofi = "exec --no-startup-id rofi -show drun";
+    };
 in
 {
   imports = [
-    (
-      import ./lock.nix (
-        args // { inherit hidpi; }
-      )
-    )
-    (
-      import ./polybar (
-        args // { inherit hidpi; }
-      )
-    )
+    ./lock.nix
+    ./polybar
     ./systray.nix
     ./picom.nix
   ];
@@ -114,7 +109,7 @@ in
         }
 
         {
-          command = "${pkgs.feh}/bin/feh --bg-fill ${wallpaper}";
+          command = "${pkgs.feh}/bin/feh --bg-fill ${cfg.wallpaper}";
           always = true;
           notification = false;
         }
@@ -192,7 +187,7 @@ in
         "${modifier}+backslash" = "exec --no-startup-id ${pkgs.chromium}/bin/chromium";
         "${modifier}+BackSpace" = "exec --no-startup-id ${pkgs.pcmanfm}/bin/pcmanfm";
         "${modifier}+apostrophe" = "exec --no-startup-id alacritty -e docread";
-        "${modifier}+d" = launchRofi;
+        "${modifier}+d" = cfg.launchRofi;
 
         "${modifier}+n" = "exec ${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
         "${modifier}+m" = "exec ${pkgs.arandr}/bin/arandr";

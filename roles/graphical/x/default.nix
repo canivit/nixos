@@ -1,19 +1,44 @@
-{ hidpi ? false, pkgs, ... }:
+{ pkgs, config, ... }:
 let
   bg = import ./../background.nix { inherit pkgs; };
-  cursorSize = if hidpi then 48 else 24;
+  cfg =
+    if config.hidpi.enable then {
+      dpi = 192;
+      cursorSize = 48;
+      accelSpeed = "0.5";
+      env = {
+        "GDK_SCALE" = "2";
+        "XCURSOR_SIZE" = "48";
+        "GDK_DPI_SCALE" = "0.5";
+        "QT_SCALE_FACTOR" = "1";
+        "QT_AUTO_SCREEN_SCALE_FACTOR" = "1";
+        "QT_FONT_DPI" = "192";
+      };
+    } else {
+      dpi = 96;
+      cursorSize = 24;
+      accelSpeed = null;
+      env = {
+        "GDK_SCALE" = "1";
+        "XCURSOR_SIZE" = "24";
+        "GDK_DPI_SCALE" = "1";
+        "QT_SCALE_FACTOR" = "1";
+        "QT_AUTO_SCREEN_SCALE_FACTOR" = "1";
+        "QT_FONT_DPI" = "96";
+      };
+    };
 in
 {
   services.xserver = {
     enable = true;
     layout = "us";
-    dpi = if hidpi then 192 else 96;
+    dpi = cfg.dpi;
 
     libinput = {
       enable = true;
       touchpad = {
         accelProfile = "adaptive";
-        accelSpeed = if hidpi then "0.5" else null;
+        accelSpeed = cfg.accelSpeed;
         tapping = true;
         naturalScrolling = true;
         scrollMethod = "twofinger";
@@ -39,7 +64,7 @@ in
         cursorTheme = {
           package = pkgs.gnome.adwaita-icon-theme;
           name = "Adwaita";
-          size = cursorSize;
+          size = cfg.cursorSize;
         };
       };
     };
@@ -51,27 +76,12 @@ in
   home-manager.users.can.home.pointerCursor = {
     package = pkgs.gnome.adwaita-icon-theme;
     name = "Adwaita";
-    size = cursorSize;
+    size = cfg.cursorSize;
     x11 = {
       enable = true;
       defaultCursor = "Adwaita";
     };
   };
 
-  environment.variables =
-    if hidpi then {
-      "GDK_SCALE" = "2";
-      "XCURSOR_SIZE" = "48";
-      "GDK_DPI_SCALE" = "0.5";
-      "QT_SCALE_FACTOR" = "1";
-      "QT_AUTO_SCREEN_SCALE_FACTOR" = "1";
-      "QT_FONT_DPI" = "192";
-    } else {
-      "GDK_SCALE" = "1";
-      "XCURSOR_SIZE" = "24";
-      "GDK_DPI_SCALE" = "1";
-      "QT_SCALE_FACTOR" = "1";
-      "QT_AUTO_SCREEN_SCALE_FACTOR" = "1";
-      "QT_FONT_DPI" = "96";
-    };
+  environment.variables = cfg.env;
 }

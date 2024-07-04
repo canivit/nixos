@@ -1,7 +1,7 @@
-{ hidpi ? false, pkgs, ... }:
+{ pkgs, config, ... }:
 let
   bg = import ./../../background.nix { inherit pkgs; };
-  wallpaper = if hidpi then bg.background_uhd else bg.background_fhd;
+  wallpaper = if config.hidpi.enable then bg.background_uhd else bg.background_fhd;
   locker = "${pkgs.multilockscreen}/bin/multilockscreen";
 
   updatelock = pkgs.writeShellScriptBin "updatelock" ''

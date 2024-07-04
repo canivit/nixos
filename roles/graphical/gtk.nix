@@ -1,4 +1,7 @@
-{ hidpi ? false, pkgs, ... }:
+{ pkgs, config, ... }:
+let
+  cursorSize = if config.hidpi.enable then 48 else 24;
+in
 {
   environment.systemPackages = with pkgs; [
     dconf
@@ -30,7 +33,7 @@
     cursorTheme = {
       package = pkgs.gnome.adwaita-icon-theme;
       name = "Adwaita";
-      size = if hidpi then 48 else 24;
+      size = cursorSize;
     };
   };
 }

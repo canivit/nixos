@@ -1,24 +1,11 @@
-args@{ hidpi ? false, ... }:
+{ ... }:
 {
   imports = [
-    (
-      import ./programs (
-        args // { inherit hidpi; }
-      )
-    )
-    (
-      import ./x (
-        args // { inherit hidpi; }
-      )
-    )
-    #./searx
+    ./programs
+    ./x
     ./virtualisation.nix
     ./fonts.nix
-    (
-      import ./gtk.nix (
-        args // { inherit hidpi; }
-      )
-    )
+    ./gtk.nix
     ./sound.nix
     ./opengl.nix
   ];
