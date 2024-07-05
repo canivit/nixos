@@ -185,7 +185,7 @@ in
         "${modifier}+Return" = "exec --no-startup-id alacritty";
         "${modifier}+Shift+Return" = "exec --no-startup-id alacritty -e ssh khoury";
         "${modifier}+backslash" = "exec --no-startup-id ${pkgs.chromium}/bin/chromium";
-        "${modifier}+BackSpace" = "exec --no-startup-id ${pkgs.pcmanfm}/bin/pcmanfm";
+        "${modifier}+BackSpace" = "exec --no-startup-id ${config.guiFileManager.cmd}";
         "${modifier}+apostrophe" = "exec --no-startup-id alacritty -e docread";
         "${modifier}+d" = cfg.launchRofi;
 

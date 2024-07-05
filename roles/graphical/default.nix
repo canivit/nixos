@@ -9,4 +9,6 @@
     ./sound.nix
     ./opengl.nix
   ];
+
+  guiFileManager.thunar.enable = true;
 }

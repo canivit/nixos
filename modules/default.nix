@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
     ./hidpi.nix
+    ./guiFileManager
   ];
 }
