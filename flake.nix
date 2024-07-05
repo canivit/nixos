@@ -104,8 +104,7 @@
               }
 
               ./modules
-              ./roles/standard
-              ./roles/graphical
+              ./hosts/${host}
             ];
           };
         };

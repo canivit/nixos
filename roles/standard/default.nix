@@ -45,7 +45,7 @@
   networking.firewall.allowPing = false;
   networking.firewall.checkReversePath = false;
 
-  nixpkgs.config.packageOverrides = pkgs: rec {
+  nixpkgs.config.packageOverrides = pkgs: {
     wpa_supplicant = pkgs.wpa_supplicant.overrideAttrs (attrs: {
       patches = attrs.patches ++ [ ./eduroam.patch ];
     });
