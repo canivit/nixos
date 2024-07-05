@@ -21,7 +21,7 @@ in
 
     iconTheme = {
       package = pkgs.papirus-icon-theme;
-      name = "ePapirus-Dark";
+      name = "Papirus-Dark";
     };
 
     font = {
