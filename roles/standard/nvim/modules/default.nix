@@ -8,6 +8,7 @@ let
     ./harpoon
     ./lsp
     ./comment
+    ./git
   ];
 
   wrapLua = p: "lua <<EOF\n${builtins.readFile p}\nEOF";
