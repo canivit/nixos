@@ -41,6 +41,9 @@
 
     # C
     clang
+
+    # Python
+    # (python3.withPackages (ps: [ ps.python-lsp-server ]))
   ];
 
   rc = wrapLua ./lsp.lua;

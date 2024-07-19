@@ -165,6 +165,12 @@ nvim_lsp.clangd.setup {
   capabilities = capabilities,
 }
 
+-- Python
+nvim_lsp.pylsp.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
 ---
 -- Snippet engine setup
 ---
