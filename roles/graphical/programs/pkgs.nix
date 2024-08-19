@@ -18,6 +18,7 @@
     rclone
     obs-studio
     zotero
+    spotify
 
     # communication
     zoom-us
@@ -30,6 +31,7 @@
     racket
     jetbrains.rider
     jetbrains.idea-ultimate
+    jetbrains.pycharm-community
     unstable.android-studio
     jetbrains.clion
     gnumake
