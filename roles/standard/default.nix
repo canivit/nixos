@@ -52,7 +52,7 @@
   };
 
   services.ntp.enable = true;
-  time.timeZone = "America/New_York";
+  time.timeZone = "Turkey";
 
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
