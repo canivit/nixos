@@ -25,7 +25,7 @@ in
       arrterian.nix-env-selector
       github.copilot
       ms-dotnettools.csharp
-      ms-vscode.cpptools
+      # ms-vscode.cpptools
       ms-vscode.makefile-tools
       rust-lang.rust-analyzer
       ocamllabs.ocaml-platform
