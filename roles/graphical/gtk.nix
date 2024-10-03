@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  cursorSize = if config.hidpi.enable then 48 else 24;
+  cursorSize = if config.modules.hidpi.enable then 48 else 24;
 in
 {
   environment.systemPackages = with pkgs; [

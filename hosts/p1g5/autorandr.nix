@@ -1,7 +1,7 @@
 { config, ... }:
 let
   cfg =
-    if config.hidpi.enable then {
+    if config.modules.hidpi.enable then {
       builtinRes = "3840x2400";
       externalRes = "3840x2160";
     } else {

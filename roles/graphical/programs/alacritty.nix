@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  scaleFactor = if config.hidpi.enable then "2" else "1";
+  scaleFactor = if config.modules.hidpi.enable then "2" else "1";
 in
 {
   home-manager.users.can.home.sessionVariables.TERMINAL = "alacritty";

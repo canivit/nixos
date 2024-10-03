@@ -2,7 +2,7 @@
 let
   wmclass = pkgs.callPackage ./wmclass.nix { };
   dpiCfg =
-    if config.hidpi.enable then {
+    if config.modules.hidpi.enable then {
       height = "55";
       line-size = "6";
       dpi = "192";

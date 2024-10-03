@@ -2,7 +2,7 @@
 let
   bg = import ./../background.nix { inherit pkgs; };
   cfg =
-    if config.hidpi.enable then {
+    if config.modules.hidpi.enable then {
       dpi = 192;
       cursorSize = 48;
       accelSpeed = "0.5";

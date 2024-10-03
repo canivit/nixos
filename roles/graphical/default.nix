@@ -10,6 +10,6 @@
     ./opengl.nix
   ];
 
-  guiFileManager.thunar.enable = true;
-  ios.enable = true;
+  modules.guiFileManager.thunar.enable = true;
+  modules.ios.enable = true;
 }

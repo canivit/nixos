@@ -10,5 +10,5 @@
   networking.hostName = "p1g5";
   system.stateVersion = "22.11";
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  hidpi.enable = true;
+  modules.hidpi.enable = true;
 }

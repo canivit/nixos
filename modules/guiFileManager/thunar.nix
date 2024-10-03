@@ -1,11 +1,9 @@
 { lib, config, pkgs, ... }:
-let cfg = config.guiFileManager.thunar; in {
-  options = {
-    guiFileManager.thunar.enable = lib.mkEnableOption "thunar file manager";
-  };
+let cfg = config.modules.guiFileManager.thunar; in {
+  options.modules.guiFileManager.thunar.enable = lib.mkEnableOption "thunar file manager";
 
   config = lib.mkIf cfg.enable {
-    guiFileManager.cmd = "thunar";
+    modules.guiFileManager.cmd = "thunar";
     programs.thunar = {
       enable = true;
       plugins = with pkgs.xfce; [

@@ -3,5 +3,5 @@
   imports = [
     ./thunar.nix
   ];
-  options.guiFileManager.cmd = lib.mkOption { type = lib.types.str; };
+  options.modules.guiFileManager.cmd = lib.mkOption { type = lib.types.str; };
 }

@@ -1,8 +1,6 @@
 { lib, config, pkgs, ... }:
-let cfg = config.ios; in {
-  options = {
-    ios.enable = lib.mkEnableOption "ios usb mount/tether";
-  };
+let cfg = config.modules.ios; in {
+  options.modules.ios.enable = lib.mkEnableOption "ios usb mount/tether";
 
   config = lib.mkIf cfg.enable {
     services.usbmuxd = {

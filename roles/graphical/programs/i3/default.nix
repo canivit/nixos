@@ -3,7 +3,7 @@ let
   lock = "${pkgs.systemd}/bin/loginctl lock-session";
   bg = import ./../../background.nix { inherit pkgs; };
   cfg =
-    if config.hidpi.enable then {
+    if config.modules.hidpi.enable then {
       wallpaper = bg.background_uhd;
       launchRofi = "exec --no-startup-id rofi -show drun -dpi 192";
     } else {
@@ -185,7 +185,7 @@ in
         "${modifier}+Return" = "exec --no-startup-id alacritty";
         "${modifier}+Shift+Return" = "exec --no-startup-id alacritty -e ssh khoury";
         "${modifier}+backslash" = "exec --no-startup-id ${pkgs.chromium}/bin/chromium";
-        "${modifier}+BackSpace" = "exec --no-startup-id ${config.guiFileManager.cmd}";
+        "${modifier}+BackSpace" = "exec --no-startup-id ${config.modules.guiFileManager.cmd}";
         "${modifier}+apostrophe" = "exec --no-startup-id alacritty -e docread";
         "${modifier}+d" = cfg.launchRofi;
 
