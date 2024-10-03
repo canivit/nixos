@@ -11,4 +11,5 @@
   ];
 
   guiFileManager.thunar.enable = true;
+  ios.enable = true;
 }
