@@ -5,7 +5,6 @@
     ./rofi.nix
     ./alacritty.nix
     ./vscode
-    ./chromium.nix
     ./mpv.nix
     ./zathura.nix
     ./pcmanfm.nix

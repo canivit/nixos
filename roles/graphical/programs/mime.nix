@@ -1,4 +1,21 @@
-{ ... }:
+{ lib, config, ... }:
+let
+  mimeTypes = {
+    web = [
+      "x-scheme-handler/http"
+      "x-scheme-handler/https"
+      "x-scheme-handler/chrome"
+      "application/x-extension-htm"
+      "application/x-extension-html"
+      "application/x-extension-shtml"
+      "application/xhtml+xml"
+      "application/x-extension-xhtml"
+      "application/x-extension-xht"
+    ];
+  };
+
+  browser = config.modules.browser.default.desktop;
+in
 {
   home-manager.users.can = {
     xdg.mime.enable = true;
@@ -7,18 +24,12 @@
       "inode/directory" = [ "pcmanfm.desktop" ];
       "image/jpeg" = [ "sxiv.desktop" ];
       "image/png" = [ "sxiv.desktop" ];
+
       "application/pdf" = [ "zathura.desktop" ];
       "application/epub+zip" = [ "zathura.desktop" ];
+
       "text/plain" = [ "code.desktop" ];
-      "x-scheme-handler/http" = [ "chromium.desktop" ];
-      "x-scheme-handler/https" = [ "chromium.desktop" ];
-      "x-scheme-handler/chrome" = [ "chromium.desktop" ];
-      "application/x-extension-htm" = [ "chromium.desktop" ];
-      "application/x-extension-html" = [ "chromium.desktop" ];
-      "application/x-extension-shtml" = [ "chromium.desktop" ];
-      "application/xhtml+xml" = [ "chromium.desktop" ];
-      "application/x-extension-xhtml" = [ "chromium.desktop" ];
-      "application/x-extension-xht" = [ "chromium.desktop" ];
-    };
+    } //
+    lib.genAttrs mimeTypes.web (_: [ browser ]);
   };
 }
