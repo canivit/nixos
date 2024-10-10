@@ -1,4 +1,4 @@
-{ nixpkgs, pkgs, config, ... }:
+{ pkgs, config, ... }:
 let
   marketExtensions = pkgs.vscode-utils.extensionsFromVscodeMarketplace [
     {
@@ -14,9 +14,9 @@ in
 {
   home-manager.users.can.programs.vscode = {
     enable = true;
-    package = pkgs.unstable.vscode;
+    package = pkgs.vscode;
 
-    extensions = with pkgs.unstable.vscode-extensions; [
+    extensions = with pkgs.vscode-extensions; [
       vscodevim.vim
       mskelton.one-dark-theme
       esbenp.prettier-vscode

@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    firefox-devedition-bin
     polkit_gnome
     gparted
     vlc
@@ -13,7 +12,6 @@
     torrential
     lxappearance
     sxiv
-    vmware-horizon-client
     calibre
     rclone
     obs-studio
