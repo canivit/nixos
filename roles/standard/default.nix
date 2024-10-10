@@ -64,4 +64,6 @@
   services.fstrim.enable = true;
   services.fstrim.interval = "weekly";
   services.fwupd.enable = true;
+
+  modules.cache.enable = true;
 }

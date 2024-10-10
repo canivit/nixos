@@ -4,5 +4,6 @@
     ./guiFileManager
     ./ios.nix
     ./browser
+    ./cache.nix
   ];
 }
