@@ -29,7 +29,6 @@
     , home-manager
     , flake-utils
     , skindle
-    , nixos-generators
     , ...
     }:
     let
@@ -77,44 +76,10 @@
           };
         };
 
-      makeKvmConfig = host: system:
-        let
-          unstableOverlay = mkUnstableOverlay system;
-          myOverlay = mkMyOverlay system;
-        in
-        {
-          ${host} = nixos-generators.nixosGenerate {
-            inherit system;
-            format = "qcow";
-
-            # specialArgs = {
-            #   diskSize = 50 * 1024;
-            # };
-
-            modules = [
-              {
-                nixpkgs.config.allowUnfree = true;
-                nixpkgs.overlays = [ unstableOverlay myOverlay ];
-              }
-
-              home-manager.nixosModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-              }
-
-              ./modules
-              ./hosts/${host}
-            ];
-          };
-        };
     in
     {
       nixosConfigurations = { }
-      // makeHardwareConfig "uranus" "x86_64-linux"
-      // makeHardwareConfig "darterpro" "x86_64-linux"
       // makeHardwareConfig "p1g5" "x86_64-linux";
-      vms = makeKvmConfig "kvm" "x86_64-linux";
     } //
     flake-utils.lib.eachDefaultSystem (system:
     let
@@ -135,7 +100,7 @@
     in
     {
       formatter = pkgs.nixpkgs-fmt;
-      devShell = pkgs.mkShell {
+      devShells.default = pkgs.mkShell {
         name = "nixos-config";
         buildInputs = with pkgs; [
           nixpkgs-fmt
