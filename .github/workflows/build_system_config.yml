@@ -1,0 +1,26 @@
+name: Build System Configurations
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        host: [p1g5]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: install nix
+      uses: cachix/install-nix-action@v30
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+
+    - name: push to cachix
+      uses: cachix/cachix-action@v15
+      with:
+        name: canivit
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+
+    - name: build system
+      run: nix build .#nixosConfigurations.${{ matrix.host }}.config.system.build.toplevel
