@@ -5,5 +5,6 @@
     ./ios.nix
     ./browser
     ./cache.nix
+    ./direnv.nix
   ];
 }

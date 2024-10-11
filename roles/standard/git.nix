@@ -10,6 +10,11 @@
         defaultBranch = "main";
       };
     };
+
+    ignores = [
+      ".envrc"
+      ".direnv"
+    ];
   };
 
 

@@ -6,7 +6,6 @@
     ./fzf.nix
     ./shells.nix
     ./starship.nix
-    ./direnv.nix
     ./git.nix
     ./ssh.nix
     ./sshd.nix
@@ -66,4 +65,5 @@
   services.fwupd.enable = true;
 
   modules.cache.enable = true;
+  modules.direnv.enable = true;
 }
