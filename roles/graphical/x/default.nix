@@ -31,22 +31,9 @@ in
 {
   services.xserver = {
     enable = true;
-    layout = "us";
+    xkb.layout = "us";
     dpi = cfg.dpi;
 
-    libinput = {
-      enable = true;
-      touchpad = {
-        accelProfile = "adaptive";
-        accelSpeed = cfg.accelSpeed;
-        tapping = true;
-        naturalScrolling = true;
-        scrollMethod = "twofinger";
-        disableWhileTyping = true;
-      };
-    };
-
-    # desktopManager.wallpaper.mode = "center";
 
     displayManager.lightdm = {
       enable = true;
@@ -67,6 +54,18 @@ in
           size = cfg.cursorSize;
         };
       };
+    };
+  };
+
+  services.libinput = {
+    enable = true;
+    touchpad = {
+      accelProfile = "adaptive";
+      accelSpeed = cfg.accelSpeed;
+      tapping = true;
+      naturalScrolling = true;
+      scrollMethod = "twofinger";
+      disableWhileTyping = true;
     };
   };
 
