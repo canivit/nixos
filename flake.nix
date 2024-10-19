@@ -32,14 +32,16 @@
             inherit skindle;
           };
 
-          makeSystemConfig = import ./system.nix {
+          makeNixosConfigs = import ./system.nix {
             pkgs = nixpkgs;
             masterPkgs = nixpkgs-master;
             inherit home-manager;
             inherit flakes;
           };
         in
-        makeSystemConfig "p1g5" "x86_64-linux";
+        makeNixosConfigs [
+          { name = "p1g5"; system = "x86_64-linux"; }
+        ];
     }
     //
     flake-utils.lib.eachDefaultSystem (system:
