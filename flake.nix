@@ -46,14 +46,17 @@
     //
     flake-utils.lib.eachDefaultSystem (system:
     let
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
-      formatter = pkgs.nixpkgs-fmt;
       devShells.default = pkgs.mkShell {
         name = "nixos-config";
         buildInputs = with pkgs; [
           nixpkgs-fmt
+          terraform
         ];
       };
 
