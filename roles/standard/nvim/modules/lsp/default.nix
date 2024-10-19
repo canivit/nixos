@@ -8,7 +8,7 @@
     nvim-cmp
     cmp-nvim-lsp
     nvim-code-action-menu
-    pkgs.unstable.vimPlugins.rust-tools-nvim
+    pkgs.master.vimPlugins.rust-tools-nvim
   ];
 
   packages = with pkgs; [
@@ -33,7 +33,7 @@
     nodePackages.vscode-json-languageserver
 
     # TypeScript
-    pkgs.unstable.nodePackages.typescript-language-server
+    pkgs.master.nodePackages.typescript-language-server
     nodePackages.prettier
 
     # Markdown

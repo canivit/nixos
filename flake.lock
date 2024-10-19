@@ -54,42 +54,6 @@
         "type": "github"
       }
     },
-    "nixlib": {
-      "locked": {
-        "lastModified": 1728176478,
-        "narHash": "sha256-px3Q0W//c+mZ4kPMXq4poztsjtXM1Ja1rN+825YMDUQ=",
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "rev": "b61309c3c1b6013d36299bc8285612865b3b9e4c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixpkgs.lib",
-        "type": "github"
-      }
-    },
-    "nixos-generators": {
-      "inputs": {
-        "nixlib": "nixlib",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1728308313,
-        "narHash": "sha256-GThSJ4OcPOOtf8j8ge7ik4141BHVbBALu0N7Ju+Nw18=",
-        "owner": "nix-community",
-        "repo": "nixos-generators",
-        "rev": "71f9c8bcc87f15dba12515e94e40de243b5db103",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-community",
-        "repo": "nixos-generators",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1728328465,
@@ -106,13 +70,13 @@
         "type": "github"
       }
     },
-    "nixpkgs-unstable": {
+    "nixpkgs-master": {
       "locked": {
-        "lastModified": 1728502677,
-        "narHash": "sha256-rkZ50dE6B8gPTVWFXGginV4BfvnEvovUMbSpqUzaklw=",
+        "lastModified": 1729327769,
+        "narHash": "sha256-RPckRaW6r1q1+KtKPcaNP7xudWfC75Jgukn7zuFrWiM=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5c44d7c8bea4b6c38f6d29c3871f7f144a6cb558",
+        "rev": "3483fc9b108b014218db5f05128b5666fa07d30d",
         "type": "github"
       },
       "original": {
@@ -142,9 +106,8 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
-        "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable",
+        "nixpkgs-master": "nixpkgs-master",
         "skindle": "skindle"
       }
     },
