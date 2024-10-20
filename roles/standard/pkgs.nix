@@ -18,5 +18,6 @@
     pciutils
     nixpkgs-fmt
     openconnect
+    awscli2
   ];
 }
