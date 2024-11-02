@@ -51,7 +51,7 @@
   };
 
   services.ntp.enable = true;
-  time.timeZone = "Turkey";
+  time.timeZone = "America/Los_Angeles";
 
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
