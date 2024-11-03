@@ -12,10 +12,16 @@
 
   modules.guiFileManager.thunar.enable = true;
   modules.ios.enable = true;
-  modules.browser.brave = {
-    enable = true;
-    default = true;
-  };
+  modules.browser = {
+    brave = {
+      enable = true;
+      default = true;
+    };
 
-  modules.browser.chromium.enable = true;
+    chromium = {
+      enable = true;
+    };
+  };
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
 }
