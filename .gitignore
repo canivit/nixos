@@ -1,1 +1,7 @@
 dev-profile*
+
+**/.terraform.lock.hcl
+**/.terraform/
+**/terraform.tfstate
+**/terraform.tfstate.backup
+**/id_ed25519

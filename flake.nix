@@ -41,6 +41,7 @@
         in
         makeNixosConfigs [
           { name = "p1g5"; system = "x86_64-linux"; }
+          { name = "builder1"; system = "x86_64-linux"; }
         ];
     }
     //
