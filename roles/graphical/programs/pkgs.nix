@@ -31,7 +31,6 @@
     jetbrains.idea-ultimate
     jetbrains.pycharm-community
     jetbrains.rust-rover
-    master.android-studio
     jetbrains.clion
     gnumake
   ];
