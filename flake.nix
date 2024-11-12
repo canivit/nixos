@@ -62,5 +62,13 @@
       };
 
     });
+
+  nixConfig = {
+    extra-substituters = [ "https://canivit.cachix.org" ];
+
+    extra-trusted-public-keys = [
+      "canivit.cachix.org-1:oqZfaVHqqURB1CjMm5ZFUt/oYI1LvIpFp1VSG1U9tG0="
+    ];
+  };
 }
 
