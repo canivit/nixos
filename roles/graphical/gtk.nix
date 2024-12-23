@@ -5,7 +5,7 @@ in
 {
   environment.systemPackages = with pkgs; [
     dconf
-    gnome.adwaita-icon-theme
+    adwaita-icon-theme
   ];
 
   programs.dconf.enable = true;

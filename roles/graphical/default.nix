@@ -6,22 +6,25 @@
     ./virtualisation.nix
     ./fonts.nix
     ./gtk.nix
-    ./sound.nix
-    ./opengl.nix
+    ./hardware-acceleration.nix
   ];
 
-  modules.guiFileManager.thunar.enable = true;
-  modules.ios.enable = true;
-  modules.browser = {
-    brave = {
-      enable = true;
-      default = true;
-    };
+  modules = {
+    guiFileManager.thunar.enable = true;
+    ios.enable = true;
+    browser = {
+      brave = {
+        enable = true;
+        default = true;
+      };
 
-    chromium = {
-      enable = true;
+      chromium = {
+        enable = true;
+      };
     };
+    pipewire.enable = true;
   };
+
   hardware.logitech.wireless.enable = true;
   hardware.logitech.wireless.enableGraphical = true;
 }
