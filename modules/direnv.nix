@@ -1,5 +1,5 @@
 { lib, config, ... }:
-let cfg = config.modules.ios; in {
+let cfg = config.modules.direnv; in {
   options.modules.direnv.enable = lib.mkEnableOption "direnv";
 
   config = lib.mkIf cfg.enable {

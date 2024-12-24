@@ -6,5 +6,6 @@
     ./browser
     ./cache.nix
     ./direnv.nix
+    ./pipewire.nix
   ];
 }
