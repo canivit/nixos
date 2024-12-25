@@ -13,11 +13,13 @@
     guiFileManager.thunar.enable = true;
     ios.enable = true;
     browser = {
-      brave = {
+      firefox = {
         enable = true;
         default = true;
       };
-
+      brave = {
+        enable = true;
+      };
       chromium = {
         enable = true;
       };
