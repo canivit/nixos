@@ -1,34 +1,38 @@
-{ lib
-, stdenv
-, fetchurl
-, writeText
-, libunwind
-, openssl
-, libuuid
-, zlib
-, curl
-, icu
-, gtk3
-, libnotify
-, lttng-ust_2_12
+{
+  lib,
+  stdenv,
+  fetchurl,
+  writeText,
+  libunwind,
+  openssl,
+  libuuid,
+  zlib,
+  curl,
+  icu,
+  gtk3,
+  libnotify,
+  lttng-ust_2_12,
 }:
 stdenv.mkDerivation rec {
   pname = "dotnet-sdk_5";
   version = "5.0.403";
 
-  rpath = lib.makeLibraryPath ([
-    stdenv.cc.cc
-    zlib
-    curl
-    icu
-    libunwind
-    libuuid
-    openssl
-    gtk3
-    libnotify
-  ] ++ lib.optionals stdenv.isLinux [
-    lttng-ust_2_12
-  ]);
+  rpath = lib.makeLibraryPath (
+    [
+      stdenv.cc.cc
+      zlib
+      curl
+      icu
+      libunwind
+      libuuid
+      openssl
+      gtk3
+      libnotify
+    ]
+    ++ lib.optionals stdenv.isLinux [
+      lttng-ust_2_12
+    ]
+  );
 
   src = fetchurl {
     url = "https://download.visualstudio.microsoft.com/download/pr/b77183fa-c045-4058-82c5-d37742ed5f2d/ddaccef3e448a6df348cae4d1d271339/dotnet-sdk-5.0.403-linux-x64.tar.gz";

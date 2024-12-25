@@ -1,14 +1,17 @@
 { config, ... }:
 let
   cfg =
-    if config.modules.hidpi.enable then {
-      builtinRes = "3840x2400";
-      externalRes = "3840x2160";
-    } else {
+    if config.modules.hidpi.enable then
+      {
+        builtinRes = "3840x2400";
+        externalRes = "3840x2160";
+      }
+    else
+      {
 
-      builtinRes = "1920x1200";
-      externalRes = "1920x1080";
-    };
+        builtinRes = "1920x1200";
+        externalRes = "1920x1080";
+      };
 in
 {
   services.autorandr = {

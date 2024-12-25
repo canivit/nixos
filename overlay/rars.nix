@@ -1,4 +1,12 @@
-{ lib, stdenvNoCC, fetchurl, makeWrapper, copyDesktopItems, makeDesktopItem, jre }:
+{
+  lib,
+  stdenvNoCC,
+  fetchurl,
+  makeWrapper,
+  copyDesktopItems,
+  makeDesktopItem,
+  jre,
+}:
 
 stdenvNoCC.mkDerivation rec {
   pname = "rars-risc";
@@ -11,7 +19,10 @@ stdenvNoCC.mkDerivation rec {
 
   dontUnpack = true;
 
-  nativeBuildInputs = [ makeWrapper copyDesktopItems ];
+  nativeBuildInputs = [
+    makeWrapper
+    copyDesktopItems
+  ];
 
   desktopItems = [
     (makeDesktopItem {
@@ -19,7 +30,10 @@ stdenvNoCC.mkDerivation rec {
       desktopName = "RARS";
       exec = "rars-risc";
       comment = "RISC-V Assembler and Runtime Simulator";
-      categories = [ "Development" "IDE" ];
+      categories = [
+        "Development"
+        "IDE"
+      ];
     })
   ];
 

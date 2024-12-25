@@ -1,6 +1,12 @@
-{ pkgs, masterPkgs, home-manager, flakes }:
+{
+  pkgs,
+  masterPkgs,
+  home-manager,
+  flakes,
+}:
 let
-  makeMasterOverlay = system:
+  makeMasterOverlay =
+    system:
     (final: prev: {
       master = import masterPkgs {
         inherit system;
@@ -8,12 +14,14 @@ let
       };
     });
 
-  makeMyOverlay = system:
+  makeMyOverlay =
+    system:
     import ./overlay {
       inherit flakes;
     };
 
-  makeNixosConfig = name: system:
+  makeNixosConfig =
+    name: system:
     let
       masterOverlay = makeMasterOverlay system;
       myOverlay = makeMyOverlay system;
@@ -24,7 +32,10 @@ let
       modules = [
         {
           nixpkgs.config.allowUnfree = true;
-          nixpkgs.overlays = [ masterOverlay myOverlay ];
+          nixpkgs.overlays = [
+            masterOverlay
+            myOverlay
+          ];
         }
 
         home-manager.nixosModules.home-manager
@@ -38,12 +49,13 @@ let
       ];
     };
 
-  makeNixosConfigs = hosts:
-    builtins.listToAttrs (map
-      (host: {
+  makeNixosConfigs =
+    hosts:
+    builtins.listToAttrs (
+      map (host: {
         name = host.name;
         value = makeNixosConfig host.name host.system;
-      })
-      hosts);
+      }) hosts
+    );
 in
 makeNixosConfigs
