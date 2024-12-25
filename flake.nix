@@ -56,10 +56,12 @@
       devShells.default = pkgs.mkShell {
         name = "nixos-config";
         buildInputs = with pkgs; [
-          nixpkgs-fmt
+          nixfmt-rfc-style
           terraform
         ];
       };
+
+      formatter = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
 
     });
 

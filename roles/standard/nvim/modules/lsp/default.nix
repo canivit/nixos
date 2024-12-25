@@ -20,6 +20,7 @@
 
     # Nix
     nixd
+    nixfmt-rfc-style
 
     # Ruby
     ruby_3_1
