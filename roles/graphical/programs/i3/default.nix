@@ -10,6 +10,7 @@ let
       wallpaper = bg.background_fhd;
       launchRofi = "exec --no-startup-id rofi -show drun";
     };
+  inherit (config.modules.sound) volumeUpCmd volumeDownCmd;
 in
 {
   imports = [
@@ -174,8 +175,8 @@ in
         "${modifier}+Shift+c" = "reload";
         "${modifier}+Shift+r" = "restart";
 
-        "XF86AudioRaiseVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%";
-        "XF86AudioLowerVolume" = "exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%";
+        "XF86AudioRaiseVolume" = "exec --no-startup-id ${volumeUpCmd}";
+        "XF86AudioLowerVolume" = "exec --no-startup-id ${volumeDownCmd}";
         "XF86AudioMute" = "exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle";
         "XF86MonBrightnessUp" = "exec --no-startup-id light -A 5";
         "XF86MonBrightnessDown" = "exec --no-startup-id light -U 5";

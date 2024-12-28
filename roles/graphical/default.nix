@@ -24,7 +24,7 @@
         enable = true;
       };
     };
-    pipewire.enable = true;
+    sound.pipewire.enable = true;
   };
 
   hardware.logitech.wireless.enable = true;
