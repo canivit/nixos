@@ -33,6 +33,7 @@
     jetbrains.rust-rover
     jetbrains.clion
     gnumake
+    postman
   ];
 
   programs.java = {
