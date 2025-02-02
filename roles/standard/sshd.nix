@@ -2,7 +2,7 @@
 let
   keys = builtins.fetchurl {
     url = "https://github.com/canivit.keys";
-    sha256 = "sha256:0s5r3f6x7xigx2fq675jyj91vqjc2lis6jqamffrpsa1j5bfva2z";
+    sha256 = "sha256:1z714kmva3szywjv9wkbshcs2d7b5msvgdymqg9gmgk66h9xjgmd";
   };
 in
 {
