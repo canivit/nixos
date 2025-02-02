@@ -8,7 +8,6 @@
     htop
     killall
     neofetch
-    eza
     tree
     zip
     unzip

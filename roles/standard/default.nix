@@ -1,9 +1,8 @@
-{ ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./tmux
     ./fzf.nix
-    ./shells.nix
     ./starship.nix
     ./git.nix
     ./ssh.nix
@@ -11,7 +10,6 @@
     ./isp.nix
     ./iplocation.nix
     ./nix.nix
-    ./bat.nix
     ./skindle
     ./pkgs.nix
   ];
@@ -66,6 +64,13 @@
       enable = true;
       createDirectories = true;
     };
-    myModules.neovim.enable = true;
+    myModules = {
+      fish.enable = true;
+      bash.enable = true;
+      neovim.enable = true;
+    };
   };
+
+  programs.fish.enable = true;
+  users.users.can.shell = pkgs.fish;
 }
