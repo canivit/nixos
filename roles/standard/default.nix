@@ -1,7 +1,6 @@
 { ... }:
 {
   imports = [
-    ./nvim
     ./tmux
     ./fzf.nix
     ./shells.nix
@@ -14,24 +13,17 @@
     ./nix.nix
     ./bat.nix
     ./skindle
-    # ./asdf.nix
     ./pkgs.nix
   ];
 
-  home-manager.users.can.home.stateVersion = "22.11";
-
   users.users.can = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     initialPassword = "can";
   };
-
-  home-manager.users.can.xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
-  };
-
-  home-manager.backupFileExtension = "backup";
 
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -66,4 +58,14 @@
 
   modules.cache.enable = true;
   modules.direnv.enable = true;
+
+  home-manager.backupFileExtension = "backup";
+  home-manager.users.can = {
+    home.stateVersion = "22.11";
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+    myModules.neovim.enable = true;
+  };
 }

@@ -39,9 +39,16 @@ let
         }
 
         home-manager.nixosModules.home-manager
+
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+        }
+
+        {
+          home-manager.sharedModules = [
+            (import ./home-modules)
+          ];
         }
 
         ./modules
