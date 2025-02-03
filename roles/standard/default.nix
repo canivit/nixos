@@ -3,7 +3,6 @@
   imports = [
     ./tmux
     ./fzf.nix
-    ./starship.nix
     ./git.nix
     ./ssh.nix
     ./sshd.nix
@@ -67,6 +66,7 @@
     myModules = {
       fish.enable = true;
       bash.enable = true;
+      starship.enable = true;
       neovim.enable = true;
     };
   };
