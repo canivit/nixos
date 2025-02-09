@@ -26,40 +26,74 @@
       flake-utils,
       ...
     }:
+    let
+      myOverlay = import ./overlay {
+        flakes = {
+          inherit skindle;
+        };
+      };
+
+      makeMasterOverlay =
+        system:
+        (final: prev: {
+          master = import nixpkgs-master {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        });
+    in
     {
       nixosConfigurations =
         let
-          flakes = {
-            inherit skindle;
-          };
+          makeNixosConfig =
+            cfg: system:
+            nixpkgs.lib.nixosSystem {
+              inherit system;
 
-          makeNixosConfigs = import ./system.nix {
-            pkgs = nixpkgs;
-            masterPkgs = nixpkgs-master;
-            inherit home-manager;
-            inherit flakes;
-          };
+              modules = [
+                {
+                  nixpkgs.config.allowUnfree = true;
+                  nixpkgs.overlays = [
+                    (makeMasterOverlay system)
+                    myOverlay
+                  ];
+                }
+
+                home-manager.nixosModules.home-manager
+                {
+                  home-manager.useGlobalPkgs = true;
+                  home-manager.useUserPackages = true;
+                }
+
+                {
+                  home-manager.sharedModules = [
+                    (import ./home-modules)
+                  ];
+                }
+
+                ./modules
+                cfg
+              ];
+            };
         in
-        makeNixosConfigs [
-          {
-            name = "p1g5";
-            system = "x86_64-linux";
-          }
-          {
-            name = "builder1";
-            system = "x86_64-linux";
-          }
-        ];
+        import ./nixos-configs { inherit makeNixosConfig; };
 
       homeConfigurations =
         let
           makeHomeConfig =
-            homeModule: system:
+            cfg: system:
             home-manager.lib.homeManagerConfiguration {
-              pkgs = nixpkgs.legacyPackages.${system};
+              pkgs = import nixpkgs {
+                system = "x86_64-linux";
+                overlays = [
+                  myOverlay
+                  (makeMasterOverlay system)
+                ];
+                config.allowUnfree = true;
+              };
               modules = [
                 (import ./home-modules)
-                homeModule
+                cfg
               ];
             };
         in
