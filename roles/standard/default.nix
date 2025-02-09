@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./tmux
     ./fzf.nix
     ./git.nix
     ./ssh.nix
@@ -68,6 +67,10 @@
       bash.enable = true;
       starship.enable = true;
       neovim.enable = true;
+      tmux = {
+        enable = true;
+        searchPaths = [ "~/workspace ~/neu" ];
+      };
     };
   };
 

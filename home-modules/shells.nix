@@ -38,25 +38,32 @@ in
       programs.fish = lib.mkIf fishCfg.enable {
         enable = true;
         shellAliases = aliases;
-        interactiveShellInit = ''
-          set fish_greeting
-          fish_vi_key_bindings
+        interactiveShellInit =
+          let
+            base = ''
+              set fish_greeting
+              fish_vi_key_bindings
 
-          function open-finder
-            tmux-sessionizer
-          end
 
-          function open-home
-            tmux-sessionizer $HOME
-          end
+              function open-home
+                tmux-sessionizer $HOME
+              end
 
-          bind -M insert \cF open-finder
-          bind -M default \cF open-finder
+              bind -M insert \cF open-finder
+              bind -M default \cF open-finder
 
-          bind -M insert \cH open-home
-          bind -M default \cH open-home
+              bind -M insert \cH open-home
+              bind -M default \cH open-home
 
-        '';
+            '';
+
+            tmuxBinding = ''
+              function open-finder
+                tmux-sessionizer
+              end
+            '';
+          in
+          if config.myModules.tmux.enable then (base + tmuxBinding) else base;
       };
 
       programs.zsh = lib.mkIf zshCfg.enable {
