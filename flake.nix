@@ -17,13 +17,14 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , nixpkgs-master
-    , home-manager
-    , skindle
-    , flake-utils
-    , ...
+    {
+      self,
+      nixpkgs,
+      nixpkgs-master,
+      home-manager,
+      skindle,
+      flake-utils,
+      ...
     }:
     {
       nixosConfigurations =
@@ -40,30 +41,51 @@
           };
         in
         makeNixosConfigs [
-          { name = "p1g5"; system = "x86_64-linux"; }
-          { name = "builder1"; system = "x86_64-linux"; }
+          {
+            name = "p1g5";
+            system = "x86_64-linux";
+          }
+          {
+            name = "builder1";
+            system = "x86_64-linux";
+          }
         ];
+
+      homeConfigurations =
+        let
+          makeHomeConfig =
+            homeModule: system:
+            home-manager.lib.homeManagerConfiguration {
+              pkgs = nixpkgs.legacyPackages.${system};
+              modules = [
+                (import ./home-modules)
+                homeModule
+              ];
+            };
+        in
+        import ./home-configs { inherit makeHomeConfig; };
     }
-    //
-    flake-utils.lib.eachDefaultSystem (system:
-    let
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    in
-    {
-      devShells.default = pkgs.mkShell {
-        name = "nixos-config";
-        buildInputs = with pkgs; [
-          nixfmt-rfc-style
-          terraform
-        ];
-      };
+    // flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      in
+      {
+        devShells.default = pkgs.mkShell {
+          name = "nixos-config";
+          buildInputs = with pkgs; [
+            nixfmt-rfc-style
+            terraform
+          ];
+        };
 
-      formatter = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+        formatter = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
 
-    });
+      }
+    );
 
   nixConfig = {
     extra-substituters = [ "https://canivit.cachix.org" ];
@@ -73,4 +95,3 @@
     ];
   };
 }
-
