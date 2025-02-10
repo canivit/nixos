@@ -63,8 +63,10 @@
       createDirectories = true;
     };
     myModules = {
-      fish.enable = true;
-      bash.enable = true;
+      shells = {
+        fish.enable = true;
+        bash.enable = true;
+      };
       starship.enable = true;
       neovim.enable = true;
       tmux = {
