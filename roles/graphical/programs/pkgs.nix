@@ -17,6 +17,7 @@
     obs-studio
     zotero
     spotify
+    obsidian
 
     # communication
     zoom-us
