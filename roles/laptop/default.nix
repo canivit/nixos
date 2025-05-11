@@ -2,6 +2,7 @@
 {
   services.logind = {
     lidSwitch = "suspend";
+    lidSwitchDocked = "ignore";
     extraConfig = ''
       HandlePowerKey=ignore
     '';

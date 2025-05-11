@@ -20,6 +20,7 @@ in
     hooks.postswitch = {
       updatelock = "updatelock";
     };
+    ignoreLid = true;
     profiles = {
       laptop = {
         fingerprint = {
