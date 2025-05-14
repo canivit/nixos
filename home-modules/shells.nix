@@ -87,6 +87,7 @@ in
             set -x PATH /apollo/env/ApolloCommandLine/bin $PATH
             set -x PATH $HOME/.toolbox/bin $PATH
             set -x PATH /apollo/env/envImprovement/bin $PATH
+            set -x PATH /home/rcanivit/.cargo/bin $PATH
 
             alias vi='nvim'
             alias vim='nvim'
@@ -110,6 +111,7 @@ in
             export PATH=/apollo/env/ApolloCommandLine/bin:$PATH
             export PATH=$HOME/.toolbox/bin:$PATH
             export PATH=/apollo/env/envImprovement/bin:$PATH
+            export PATH=/home/rcanivit/.cargo/bin:$PATH
 
             source /home/rcanivit/.brazil_completion/zsh_completion
 
