@@ -5,3 +5,5 @@ dev-profile*
 **/terraform.tfstate
 **/terraform.tfstate.backup
 **/id_ed25519
+
+result
