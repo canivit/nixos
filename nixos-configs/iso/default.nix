@@ -1,4 +1,4 @@
-{ modulesPath, lib, ... }:
+{ modulesPath, lib, pkgs, ... }:
 {
   imports = [
     "${modulesPath}/installer/cd-dvd/installation-cd-graphical-base.nix"
@@ -7,7 +7,7 @@
     ./../../roles/graphical
   ];
 
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   services.openssh.settings = {
     PasswordAuthentication = lib.mkForce true;
@@ -15,5 +15,5 @@
   };
   networking.wireless.enable = lib.mkForce false;
   users.extraUsers.root.initialPassword = "toor";
-  modules.hidpi.enable = false;
+  modules.hidpi.enable = true;
 }
