@@ -8,7 +8,7 @@
     inkscape
     gimp
     pavucontrol
-    kdenlive
+    kdePackages.kdenlive
     torrential
     lxappearance
     sxiv
@@ -34,7 +34,7 @@
     jetbrains.rust-rover
     jetbrains.clion
     gnumake
-    postman
+    # postman
   ];
 
   programs.java = {

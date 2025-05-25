@@ -8,7 +8,7 @@
       jetbrains-mono
       fira-code
       iosevka
-      (nerdfonts.override { fonts = [ "FiraCode" ]; })
+      nerd-fonts.fira-code
       material-icons
       font-awesome
     ];
