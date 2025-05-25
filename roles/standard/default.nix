@@ -26,8 +26,6 @@
     keyMap = "us";
   };
 
-  networking.networkmanager.enable = true;
-  networking.networkmanager.wifi.powersave = false;
   networking.firewall.enable = true;
   networking.firewall.allowPing = false;
   networking.firewall.checkReversePath = false;

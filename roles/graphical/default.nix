@@ -9,6 +9,9 @@
     ./hardware-acceleration.nix
   ];
 
+  networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = false;
+
   modules = {
     guiFileManager.thunar.enable = true;
     ios.enable = true;
