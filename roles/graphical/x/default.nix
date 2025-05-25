@@ -49,7 +49,7 @@ in
           name = "Papirus-Dark";
         };
         cursorTheme = {
-          package = pkgs.gnome.adwaita-icon-theme;
+          package = pkgs.adwaita-icon-theme;
           name = "Adwaita";
           size = cfg.cursorSize;
         };
@@ -73,7 +73,7 @@ in
   home-manager.users.can.xresources.extraConfig = builtins.readFile ./Xresources;
 
   home-manager.users.can.home.pointerCursor = {
-    package = pkgs.gnome.adwaita-icon-theme;
+    package = pkgs.adwaita-icon-theme;
     name = "Adwaita";
     size = cfg.cursorSize;
     x11 = {

@@ -8,7 +8,7 @@
     inkscape
     gimp
     pavucontrol
-    kdenlive
+    kdePackages.kdenlive
     torrential
     lxappearance
     sxiv
