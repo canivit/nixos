@@ -17,4 +17,6 @@ in
       lockCmd = "${locker} -l";
     };
   };
+
+  security.pam.services.i3lock.enable = true;
 }
