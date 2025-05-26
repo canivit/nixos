@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  hardware.pulseaudio = {
+  services.pulseaudio = {
     enable = true;
     support32Bit = true;
     package = pkgs.pulseaudioFull;

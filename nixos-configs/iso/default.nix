@@ -14,6 +14,9 @@
     PermitRootLogin = lib.mkForce "yes";
   };
   networking.wireless.enable = lib.mkForce false;
-  users.extraUsers.root.initialPassword = "toor";
+  users.extraUsers.root = {
+    password = "toor";
+    initialHashedPassword = lib.mkForce null;
+  };
   modules.hidpi.enable = true;
 }

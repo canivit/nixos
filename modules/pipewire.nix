@@ -14,7 +14,7 @@ let cfg = config.modules.sound.pipewire; in {
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-    hardware.pulseaudio.enable = false;
+    services.pulseaudio.enable = false;
     environment.systemPackages = with pkgs; [ pamixer pamix ];
     modules.sound.volumeUpCmd = "pamixer -i 1";
     modules.sound.volumeDownCmd = "pamixer -d 1";
