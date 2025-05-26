@@ -9,5 +9,6 @@
     ./direnv.nix
     ./pipewire.nix
     ./networking.nix
+    ./auto-upgrade.nix
   ];
 }
