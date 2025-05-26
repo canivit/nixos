@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./hidpi.nix
     ./guiFileManager
@@ -7,5 +8,6 @@
     ./cache.nix
     ./direnv.nix
     ./pipewire.nix
+    ./networking.nix
   ];
 }
