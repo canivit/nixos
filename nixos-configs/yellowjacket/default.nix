@@ -12,6 +12,7 @@
       interface = "wlo1";
     };
     auto-upgrade.enable = true;
+    jellyfin.enable = true;
   };
 
   system.stateVersion = "25.05";

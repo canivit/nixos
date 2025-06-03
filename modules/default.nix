@@ -10,5 +10,6 @@
     ./pipewire.nix
     ./networking.nix
     ./auto-upgrade.nix
+    ./jellyfin.nix
   ];
 }
