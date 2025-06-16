@@ -11,5 +11,6 @@
     ./networking.nix
     ./auto-upgrade.nix
     ./jellyfin.nix
+    ./sops.nix
   ];
 }

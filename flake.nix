@@ -11,6 +11,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-utils.url = "github:numtide/flake-utils";
 
     skindle.url = "github:canivit/skindle";
@@ -22,6 +27,7 @@
       nixpkgs,
       nixpkgs-master,
       home-manager,
+      sops-nix,
       skindle,
       flake-utils,
       ...
@@ -64,6 +70,8 @@
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
                 }
+
+                sops-nix.nixosModules.sops
 
                 {
                   home-manager.sharedModules = [
@@ -111,6 +119,8 @@
         devShells.default = pkgs.mkShell {
           name = "nixos-config";
           buildInputs = with pkgs; [
+            sops
+            ssh-to-age
             nixfmt-rfc-style
             terraform
           ];

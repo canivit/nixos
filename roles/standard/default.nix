@@ -52,6 +52,7 @@
 
   modules.cache.enable = true;
   modules.direnv.enable = true;
+  modules.sops.enable = true;
 
   home-manager.backupFileExtension = "backup";
   home-manager.users.can = {

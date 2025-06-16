@@ -19,12 +19,12 @@ in
     networking.wireless = {
       enable = true;
       interfaces = [ cfg.wireless.interface ];
-      secretsFile = "${config.users.users.can.home}/secrets/wireless.conf";
+      secretsFile = "/run/secrets/wifi_passwords";
       networks = {
         ivit = {
           # read PSK from the variable psk_ivit, defined in secretsFile
           # this won't leak into /nix/store
-          pskRaw = "ext:psk_ivit";
+          pskRaw = "ext:ivit";
         };
       };
     };
