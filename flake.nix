@@ -114,16 +114,25 @@
           inherit system;
           config.allowUnfree = true;
         };
+
+        setupSopsKey = pkgs.writeShellScriptBin "setup_sops_key" (
+          builtins.readFile ./scripts/setup_sops_key.sh
+        );
       in
       {
         devShells.default = pkgs.mkShell {
           name = "nixos-config";
           buildInputs = with pkgs; [
             sops
-            ssh-to-age
+            age
             nixfmt-rfc-style
             terraform
+            setupSopsKey
           ];
+
+          env = {
+            SOPS_AGE_KEY_FILE = "/var/lib/sops/age/keys.txt";
+          };
         };
 
         formatter = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;

@@ -13,7 +13,7 @@ in
     sops = {
       defaultSopsFile = ./../secrets.yaml;
       age = {
-        keyFile = "${config.users.users.can.home}/.config/sops/age/keys.txt";
+        keyFile = "/var/lib/sops/age/keys.txt";
       };
       secrets =
         let
