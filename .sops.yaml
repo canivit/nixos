@@ -1,7 +1,9 @@
 keys:
   - &p1g5 age12uaetn56p5vy05pv23tzd2q0l5s0ml4yk5j7xm9hxp6txwx9cv5qawkxf2
+  - &yellowjacket age1fcdt69pdxkg7f6lc5yuduzg9fw0mkt8gjmzfaxva76z83xx575cqny3vsy
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
     - age:
       - *p1g5
+      - *yellowjacket
