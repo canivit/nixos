@@ -26,6 +26,10 @@ in
           # this won't leak into /nix/store
           pskRaw = "ext:ivit";
         };
+
+        "Can's iPhone" = {
+          pskRaw = "ext:myphone";
+        };
       };
     };
   };
