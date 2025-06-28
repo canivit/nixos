@@ -20,5 +20,16 @@
       };
     };
   };
+
+  networking.interfaces."enp0s13f0u1u1u2" = {
+    useDHCP = false;
+    ipv4.addresses = [
+      {
+        address = "192.168.1.2";
+        prefixLength = 24;
+      }
+    ];
+  };
+
   boot.loader.grub.configurationName = "NixOS (Default)";
 }
