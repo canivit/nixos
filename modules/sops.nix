@@ -25,6 +25,7 @@ in
         in
         {
           wifi_passwords = permissions;
+          nix_cache_server_private_key = permissions;
         };
     };
   };

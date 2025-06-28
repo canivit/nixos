@@ -13,6 +13,7 @@
     };
     auto-upgrade.enable = true;
     jellyfin.enable = true;
+    cache.server.enable = true;
   };
 
   networking.interfaces."enp3s0" = {
