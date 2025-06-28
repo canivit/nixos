@@ -36,6 +36,7 @@ in
 
     services.nix-serve = lib.mkIf cfg.server.enable {
       enable = true;
+      package = pkgs.nix-serve-ng;
       bindAddress = "10.0.0.10";
       port = 5000;
       openFirewall = true;
