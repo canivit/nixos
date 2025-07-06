@@ -19,12 +19,9 @@ in
         "https://canivit.cachix.org"
       ] ++ lib.optional (!cfg.server.enable) "http://10.0.0.10:5000";
 
-      trusted-public-keys =
-        [
-          "canivit.cachix.org-1:oqZfaVHqqURB1CjMm5ZFUt/oYI1LvIpFp1VSG1U9tG0="
-        ]
-        ++ lib.optional (!cfg.server.enable)
-          "home-cache:zKgFjuTo+ZXr8z8MmxnlztOgF7GHh7f/cnPJHeas5pErOcl3D8gB+VQGMNvwexSRPzGF+WI/08lEDLtCXeAiMQ==";
+      trusted-public-keys = [
+        "canivit.cachix.org-1:oqZfaVHqqURB1CjMm5ZFUt/oYI1LvIpFp1VSG1U9tG0="
+      ] ++ lib.optional (!cfg.server.enable) "yellowjacket:klK6k/HcdDvqi3zZfFOqB7G67EBWI75B7JwhgxmVtj8=";
     };
 
     environment.systemPackages = lib.mkIf cfg.enable (
