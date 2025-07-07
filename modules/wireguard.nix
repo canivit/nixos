@@ -33,7 +33,7 @@ in
         iptables -A OUTPUT -o wg0 -j ACCEPT
 
         # Allow established traffic
-        iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+        iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
         # Allow SSH regardless of interface
         iptables -A OUTPUT -p tcp --dport 22 -j ACCEPT
@@ -46,7 +46,7 @@ in
       postDown = ''
         iptables -D OUTPUT -o wg0 -j ACCEPT
 
-        iptables -D INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+        iptables -D OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
         iptables -D OUTPUT -p tcp --dport 22 -j ACCEPT
         iptables -D OUTPUT -p tcp --sport 22 -j ACCEPT
