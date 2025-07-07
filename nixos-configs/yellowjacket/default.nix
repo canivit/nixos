@@ -7,9 +7,12 @@
 
   networking.hostName = "yellowjacket";
   modules = {
-    networking.wireless = {
-      enable = true;
-      interface = "wlo1";
+    networking = {
+      wireless = {
+        enable = true;
+        interface = "wlo1";
+      };
+      wireguard.enable = true;
     };
     auto-upgrade.enable = true;
     jellyfin.enable = true;
