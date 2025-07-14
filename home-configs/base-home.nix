@@ -15,5 +15,6 @@
       enable = true;
       searchPaths = [ "~/workplace" ];
     };
+    jetbrainskiller.enable = true;
   };
 }

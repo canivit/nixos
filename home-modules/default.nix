@@ -5,5 +5,6 @@
     ./starship.nix
     ./tmux
     ./neovim
+    ./jetbrainskiller
   ];
 }
